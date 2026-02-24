@@ -3,721 +3,684 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mako Buyers Agency | Securing Sydney's Premier Real Estate</title>
-  <meta name="description" content="Independent property buyers agency based in Sydney, NSW. Expert search, appraisal, negotiation and auction representation to help you buy your dream home at a dream price.">
-  
+  <title>Violet Media — Web Design</title>
+  <meta name="description" content="Cinematic, mobile-responsive websites for businesses worldwide. AI-powered design, you own everything. Starting at $800 AUD.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <style>
-    /* ===== CSS VARIABLES & DESIGN SYSTEM ===== */
     :root {
-      /* Mako Brand Palette */
-      --mako-navy: #0A1128;
-      --mako-navy-light: #16244A;
-      --mako-blue: #00A3FF;
-      --mako-blue-hover: #0082CC;
-      --mako-sky: #E8F4FF;
-      
-      /* Neutral Palette */
-      --dark: #111827;
-      --grey-dark: #374151;
-      --grey: #6B7280;
-      --grey-light: #9CA3AF;
-      --border: #E5E7EB;
-      --bg-off-white: #FAFAFA;
+      --violet: #8A2BE2;
+      --violet-light: #A855F7;
+      --violet-soft: #F3E8FF;
+      --violet-bg: #FAF5FF;
+      --dark: #1A1A2E;
+      --grey: #64748B;
+      --grey-light: #94A3B8;
       --white: #FFFFFF;
-      
-      /* Luxury Accents */
+      --off-white: #FAFAFA;
+      --border: #E2E8F0;
       --gold: #C9A84C;
-      --gold-light: #DFCA88;
-      
-      /* Typography */
-      --font-heading: 'Playfair Display', serif;
-      --font-body: 'DM Sans', sans-serif;
     }
 
-    /* ===== RESET & BASE ===== */
-    * { 
-      margin: 0; 
-      padding: 0; 
-      box-sizing: border-box; 
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    html { 
-      scroll-behavior: smooth; 
-    }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: var(--font-body);
-      color: var(--grey-dark);
-      background: var(--bg-off-white);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      font-family: var(--font-heading);
-      color: var(--mako-navy);
-      line-height: 1.2;
-    }
-
-    a {
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    /* ===== REUSABLE COMPONENTS ===== */
-    .container { 
-      max-width: 1280px; 
-      margin: 0 auto; 
-      padding: 0 24px; 
-    }
-
-    section { 
-      padding: 120px 0; 
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 64px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .section-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      color: var(--mako-blue);
-      font-family: var(--font-body);
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 16px;
-    }
-
-    .section-label::before, .section-label::after {
-      content: '';
-      width: 32px;
-      height: 1px;
-      background: var(--mako-blue);
-    }
-
-    .section-title {
-      font-size: clamp(36px, 4vw, 48px);
-      font-weight: 700;
-      margin-bottom: 24px;
-    }
-
-    .section-sub {
-      font-size: 18px;
-      color: var(--grey);
-      font-weight: 400;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      background: var(--mako-blue);
-      color: var(--white);
-      padding: 16px 36px;
-      border-radius: 4px;
-      font-size: 15px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 4px 14px rgba(0, 163, 255, 0.2);
-    }
-
-    .btn-primary:hover {
-      background: var(--mako-blue-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0, 163, 255, 0.3);
-      color: var(--white);
-    }
-
-    .btn-outline {
-      display: inline-block;
-      background: transparent;
-      color: var(--white);
-      padding: 14px 34px;
-      border-radius: 4px;
-      font-size: 15px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      border: 2px solid var(--white);
-      cursor: pointer;
-    }
-
-    .btn-outline:hover {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--dark);
       background: var(--white);
-      color: var(--mako-navy);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* ===== NAVIGATION ===== */
+    /* ===== NAV ===== */
     nav {
       position: fixed;
       top: 0;
       width: 100%;
-      z-index: 1000;
-      background: rgba(10, 17, 40, 0.95);
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      transition: all 0.4s ease;
-      padding: 16px 0;
-    }
-
-    nav.scrolled {
-      padding: 12px 0;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s ease;
     }
 
     .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .nav-logo img {
-      height: 40px;
-      width: auto;
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
     }
+
+    .nav-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--violet);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .nav-logo-text {
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--dark);
+    }
+
+    .nav-logo-text span { color: var(--violet); }
 
     .nav-links {
       display: flex;
-      gap: 40px;
+      gap: 32px;
       align-items: center;
       list-style: none;
     }
 
     .nav-links a {
-      color: var(--white);
-      font-size: 13px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      position: relative;
+      text-decoration: none;
+      color: var(--grey);
+      font-size: 15px;
+      font-weight: 500;
+      transition: color 0.2s;
     }
 
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -6px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--mako-blue);
-      transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
+    .nav-links a:hover { color: var(--violet); }
 
     .nav-cta {
-      background: var(--mako-blue) !important;
-      padding: 12px 28px !important;
-      border-radius: 4px;
+      background: var(--violet) !important;
+      color: white !important;
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-weight: 600 !important;
+      transition: transform 0.2s, box-shadow 0.2s !important;
     }
 
-    .nav-cta::after { display: none !important; }
-
     .nav-cta:hover {
-      background: var(--mako-blue-hover) !important;
-      transform: translateY(-2px);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(138, 43, 226, 0.3);
     }
 
     .mobile-menu-btn {
       display: none;
       background: none;
       border: none;
-      color: var(--white);
-      font-size: 24px;
       cursor: pointer;
+      padding: 8px;
     }
 
-    /* ===== HERO SECTION ===== */
+    .mobile-menu-btn span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--dark);
+      margin: 5px 0;
+      transition: all 0.3s;
+    }
+
+    /* ===== HERO ===== */
     .hero {
+      padding: 160px 24px 100px;
+      text-align: center;
+      background: linear-gradient(180deg, var(--violet-bg) 0%, var(--white) 100%);
       position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding-top: 100px;
-      background-color: var(--mako-navy);
       overflow: hidden;
     }
 
-    .hero-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
-      background-size: cover;
-      background-position: center;
-      z-index: 1;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(10, 17, 40, 0.9) 0%, rgba(10, 17, 40, 0.7) 100%);
-      z-index: 2;
-    }
-
-    /* Ambient Lighting */
     .hero::before {
       content: '';
       position: absolute;
-      top: -20%;
-      right: -10%;
-      width: 60vw;
-      height: 60vw;
-      background: radial-gradient(circle, rgba(0, 163, 255, 0.15) 0%, transparent 60%);
-      z-index: 3;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(138, 43, 226, 0.06) 0%, transparent 70%);
       pointer-events: none;
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 4;
-      width: 100%;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 64px;
-      align-items: center;
-    }
-
-    .hero-text-content {
-      animation: fadeInUp 1s ease 0.2s both;
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(138, 43, 226, 0.04) 0%, transparent 70%);
+      pointer-events: none;
     }
 
     .hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      background: rgba(0, 163, 255, 0.1);
-      border: 1px solid rgba(0, 163, 255, 0.3);
-      color: var(--mako-blue);
-      padding: 8px 16px;
-      border-radius: 4px;
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      gap: 8px;
+      background: var(--violet-soft);
+      color: var(--violet);
+      padding: 8px 20px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 600;
       margin-bottom: 32px;
+      animation: fadeInDown 0.8s ease;
     }
 
     .hero h1 {
-      color: var(--white);
-      font-size: clamp(48px, 6vw, 72px);
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(40px, 6vw, 72px);
       line-height: 1.1;
-      margin-bottom: 24px;
+      font-weight: 700;
+      color: var(--dark);
+      max-width: 800px;
+      margin: 0 auto 24px;
+      animation: fadeInUp 0.8s ease 0.1s both;
     }
 
     .hero h1 em {
-      color: var(--mako-blue);
+      color: var(--violet);
       font-style: italic;
     }
 
     .hero-sub {
-      color: var(--border);
-      font-size: clamp(18px, 2vw, 22px);
+      font-size: clamp(18px, 2.5vw, 22px);
+      color: var(--grey);
       max-width: 600px;
-      margin-bottom: 48px;
-      font-weight: 300;
+      margin: 0 auto 48px;
+      animation: fadeInUp 0.8s ease 0.2s both;
     }
 
     .hero-actions {
       display: flex;
-      gap: 20px;
+      gap: 16px;
+      justify-content: center;
       flex-wrap: wrap;
+      animation: fadeInUp 0.8s ease 0.3s both;
     }
 
-    /* Hero Agent Card */
-    .hero-agent-card {
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 24px;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-      animation: fadeInRight 1s ease 0.4s both;
-      position: relative;
+    .btn-primary {
+      background: var(--violet);
+      color: white;
+      padding: 16px 36px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
     }
 
-    .hero-agent-card::after {
+    .btn-primary:hover {
+      background: #7B25CC;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(138, 43, 226, 0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--dark);
+      padding: 16px 36px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 2px solid var(--border);
+      transition: all 0.3s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--violet);
+      color: var(--violet);
+    }
+
+    .hero-proof {
+      margin-top: 64px;
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.8s ease 0.4s both;
+    }
+
+    .proof-item {
+      text-align: center;
+    }
+
+    .proof-item .number {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--violet);
+    }
+
+    .proof-item .label {
+      font-size: 14px;
+      color: var(--grey);
+      font-weight: 500;
+    }
+
+    /* ===== SECTIONS ===== */
+    section { padding: 100px 24px; }
+
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--violet);
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .section-label::before {
       content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 12px;
-      padding: 1px;
-      background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
+      width: 24px;
+      height: 2px;
+      background: var(--violet);
     }
 
-    .agent-image-wrapper {
-      width: 100%;
-      height: 380px;
-      border-radius: 8px;
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .section-sub {
+      font-size: 18px;
+      color: var(--grey);
+      max-width: 600px;
+      margin-bottom: 60px;
+    }
+
+    /* ===== PORTFOLIO ===== */
+    #portfolio { background: var(--off-white); }
+
+    .portfolio-showcase {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .portfolio-card {
+      background: var(--white);
+      border-radius: 16px;
       overflow: hidden;
-      margin-bottom: 24px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .agent-image-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
+    .portfolio-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.1);
     }
 
-    .agent-info {
+    .portfolio-browser {
+      background: #F1F5F9;
+      padding: 12px 16px;
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 8px;
+      border-bottom: 1px solid var(--border);
     }
 
-    .agent-avatar {
-      width: 48px;
-      height: 48px;
-      background: var(--mako-blue);
+    .browser-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .browser-dots span {
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
+    }
+
+    .browser-dots span:nth-child(1) { background: #FF5F56; }
+    .browser-dots span:nth-child(2) { background: #FFBD2E; }
+    .browser-dots span:nth-child(3) { background: #27CA40; }
+
+    .browser-url {
+      flex: 1;
+      background: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      color: var(--grey);
+      margin-left: 8px;
+    }
+
+    .portfolio-preview {
+      position: relative;
+      padding: 0;
+      min-height: 400px;
+      background: linear-gradient(135deg, #0D0221 0%, #1A0535 50%, #2D1B69 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--white);
-      font-size: 20px;
-    }
-
-    .agent-details h4 {
-      color: var(--white);
-      font-family: var(--font-body);
-      font-size: 16px;
-      margin-bottom: 2px;
-    }
-
-    .agent-details p {
-      color: var(--mako-blue);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 600;
-    }
-
-    .agent-quote {
-      margin-top: 20px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      color: var(--border);
-      font-style: italic;
-      font-size: 14px;
-    }
-
-    /* ===== SERVICES SECTION ===== */
-    #services {
-      background: var(--bg-off-white);
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 32px;
-    }
-
-    .service-card {
-      background: var(--white);
-      padding: 48px 40px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      transition: all 0.4s ease;
-      position: relative;
       overflow: hidden;
     }
 
-    .service-card::before {
+    .portfolio-preview::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 4px;
-      background: var(--mako-blue);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s ease;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(ellipse at 30% 20%, rgba(138, 43, 226, 0.3) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(168, 85, 247, 0.2) 0%, transparent 50%);
     }
 
-    .service-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
-      border-color: transparent;
+    .portfolio-preview-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: white;
+      padding: 40px;
     }
 
-    .service-card:hover::before {
-      transform: scaleX(1);
+    .portfolio-preview-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      margin-bottom: 8px;
     }
 
-    .service-icon {
-      width: 64px;
-      height: 64px;
-      background: var(--mako-sky);
-      color: var(--mako-blue);
-      border-radius: 8px;
+    .portfolio-preview-content p {
+      font-size: 16px;
+      opacity: 0.7;
+      margin-bottom: 20px;
+    }
+
+    .portfolio-stats {
       display: flex;
-      align-items: center;
+      gap: 32px;
       justify-content: center;
-      font-size: 24px;
-      margin-bottom: 32px;
-      transition: all 0.4s ease;
+      flex-wrap: wrap;
     }
 
-    .service-card:hover .service-icon {
-      background: var(--mako-blue);
-      color: var(--white);
+    .portfolio-stats .stat {
+      text-align: center;
     }
 
-    .service-card h3 {
-      font-size: 24px;
+    .portfolio-stats .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--violet-light);
+    }
+
+    .portfolio-stats .stat-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.6;
+    }
+
+    .portfolio-info {
+      padding: 32px;
+    }
+
+    .portfolio-info h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .portfolio-info .client {
+      color: var(--violet);
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .portfolio-info p {
+      color: var(--grey);
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .portfolio-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .portfolio-tags span {
+      background: var(--violet-soft);
+      color: var(--violet);
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .portfolio-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--violet);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 15px;
+      margin-top: 16px;
+      transition: gap 0.2s;
+    }
+
+    .portfolio-link:hover { gap: 10px; }
+
+    /* ===== PROCESS ===== */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 32px;
+    }
+
+    .process-card {
+      padding: 36px;
+      border-radius: 16px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .process-card:hover {
+      border-color: var(--violet);
+      box-shadow: 0 8px 32px rgba(138, 43, 226, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .process-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--violet-soft);
+      line-height: 1;
       margin-bottom: 16px;
     }
 
-    .service-card p {
-      color: var(--grey);
-      font-size: 15px;
-      line-height: 1.7;
-    }
-
-    /* ===== PORTFOLIO / FEATURED SECTION ===== */
-    #featured {
-      background: var(--mako-navy);
-      color: var(--white);
-      position: relative;
-    }
-
-    #featured .section-title { color: var(--white); }
-    #featured .section-sub { color: var(--border); }
-
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 32px;
-    }
-
-    .portfolio-card {
-      position: relative;
-      border-radius: 8px;
-      overflow: hidden;
-      aspect-ratio: 4/3;
-      cursor: pointer;
-    }
-
-    .portfolio-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-    }
-
-    .portfolio-card:hover .portfolio-image {
-      transform: scale(1.08);
-    }
-
-    .portfolio-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(10, 17, 40, 0.9) 0%, rgba(10, 17, 40, 0.2) 50%, transparent 100%);
-      padding: 32px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      opacity: 0.9;
-      transition: opacity 0.4s ease;
-    }
-
-    .portfolio-card:hover .portfolio-overlay {
-      opacity: 1;
-    }
-
-    .portfolio-overlay h4 {
-      color: var(--white);
-      font-size: 22px;
-      margin-bottom: 8px;
-      transform: translateY(10px);
-      transition: transform 0.4s ease;
-    }
-
-    .portfolio-overlay p {
-      color: var(--mako-sky);
-      font-size: 14px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transform: translateY(10px);
-      opacity: 0;
-      transition: all 0.4s ease 0.1s;
-    }
-
-    .portfolio-card:hover .portfolio-overlay h4,
-    .portfolio-card:hover .portfolio-overlay p {
-      transform: translateY(0);
-      opacity: 1;
-    }
-
-    /* ===== PROCESS SECTION ===== */
-    #process {
-      background: var(--white);
-    }
-
-    .process-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-
-    .process-image {
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
-      position: relative;
-    }
-
-    .process-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .process-list {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-    }
-
-    .process-step {
-      display: flex;
-      gap: 24px;
-    }
-
-    .step-number {
-      flex-shrink: 0;
-      width: 48px;
-      height: 48px;
-      background: var(--mako-sky);
-      color: var(--mako-blue);
-      font-family: var(--font-heading);
+    .process-card h3 {
       font-size: 20px;
       font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-    }
-
-    .step-content h4 {
-      font-size: 22px;
       margin-bottom: 12px;
-      margin-top: 8px;
+      color: var(--dark);
     }
 
-    .step-content p {
+    .process-card p {
       color: var(--grey);
       font-size: 15px;
+      line-height: 1.6;
     }
 
-    /* ===== TESTIMONIALS ===== */
-    #testimonials {
-      background: var(--bg-off-white);
-    }
+    /* ===== PRICING ===== */
+    #pricing { background: var(--off-white); }
 
-    .testimonial-grid {
+    .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-      gap: 32px;
-      margin-bottom: 80px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
-    .testimonial-card {
+    .pricing-card {
       background: var(--white);
-      padding: 48px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 32px;
+      border: 2px solid var(--border);
+      transition: all 0.3s;
       position: relative;
     }
 
-    .quote-icon {
+    .pricing-card.featured {
+      border-color: var(--violet);
+      box-shadow: 0 8px 40px rgba(138, 43, 226, 0.12);
+      transform: scale(1.02);
+    }
+
+    .pricing-card.featured::before {
+      content: 'Most Popular';
       position: absolute;
-      top: 32px;
-      right: 48px;
-      font-size: 64px;
-      color: var(--mako-sky);
-      font-family: var(--font-heading);
-      line-height: 1;
-      opacity: 0.5;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--violet);
+      color: white;
+      padding: 4px 20px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
     }
 
-    .stars {
-      color: var(--gold);
+    .pricing-card:hover {
+      border-color: var(--violet);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(138, 43, 226, 0.1);
+    }
+
+    .pricing-card.featured:hover { transform: scale(1.02) translateY(-4px); }
+
+    .pricing-tier {
       font-size: 14px;
-      margin-bottom: 24px;
-      display: flex;
-      gap: 4px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--violet);
+      margin-bottom: 8px;
     }
 
-    .testimonial-text {
-      font-size: 18px;
-      color: var(--mako-navy);
-      font-style: italic;
-      margin-bottom: 32px;
-      line-height: 1.8;
-      position: relative;
-      z-index: 2;
-    }
-
-    .testimonial-author h5 {
-      font-family: var(--font-body);
-      font-size: 16px;
+    .pricing-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
       font-weight: 700;
+      color: var(--dark);
       margin-bottom: 4px;
     }
 
-    .testimonial-author p {
-      font-size: 13px;
+    .pricing-price span {
+      font-size: 18px;
       color: var(--grey);
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
     }
 
+    .pricing-desc {
+      color: var(--grey);
+      font-size: 15px;
+      margin-bottom: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pricing-features {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+
+    .pricing-features li {
+      padding: 8px 0;
+      font-size: 15px;
+      color: var(--dark);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .pricing-features li::before {
+      content: '✓';
+      color: var(--violet);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .pricing-cta {
+      display: block;
+      text-align: center;
+      padding: 14px;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      font-size: 15px;
+    }
+
+    .pricing-cta-outline {
+      border: 2px solid var(--violet);
+      color: var(--violet);
+    }
+
+    .pricing-cta-outline:hover {
+      background: var(--violet);
+      color: white;
+    }
+
+    .pricing-cta-fill {
+      background: var(--violet);
+      color: white;
+      border: 2px solid var(--violet);
+    }
+
+    .pricing-cta-fill:hover {
+      background: #7B25CC;
+      box-shadow: 0 4px 16px rgba(138, 43, 226, 0.3);
+    }
+
+    .pricing-note {
+      text-align: center;
+      margin-top: 40px;
+      color: var(--grey);
+      font-size: 15px;
+    }
+
+    .pricing-note strong { color: var(--dark); }
+
     /* ===== FAQ ===== */
-    .faq-container {
-      max-width: 800px;
+    .faq-list {
+      max-width: 700px;
       margin: 0 auto;
     }
 
@@ -729,268 +692,195 @@
       width: 100%;
       background: none;
       border: none;
-      padding: 32px 0;
+      padding: 24px 0;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--dark);
+      text-align: left;
+      cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      cursor: pointer;
-      font-family: var(--font-heading);
-      font-size: 20px;
-      font-weight: 600;
-      color: var(--mako-navy);
-      text-align: left;
+      font-family: 'DM Sans', sans-serif;
+      transition: color 0.2s;
     }
+
+    .faq-question:hover { color: var(--violet); }
 
     .faq-icon {
-      color: var(--mako-blue);
-      font-size: 20px;
-      transition: transform 0.3s ease;
+      font-size: 24px;
+      color: var(--violet);
+      transition: transform 0.3s;
+      flex-shrink: 0;
+      margin-left: 16px;
     }
 
-    .faq-item.active .faq-icon {
-      transform: rotate(45deg);
-    }
+    .faq-item.active .faq-icon { transform: rotate(45deg); }
 
     .faq-answer {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.4s ease, padding 0.4s ease;
+      transition: max-height 0.3s ease, padding 0.3s ease;
     }
 
     .faq-item.active .faq-answer {
       max-height: 300px;
-      padding-bottom: 32px;
+      padding-bottom: 24px;
     }
 
     .faq-answer p {
       color: var(--grey);
       font-size: 15px;
-      line-height: 1.8;
+      line-height: 1.7;
     }
 
-    /* ===== CONTACT SECTION ===== */
-    #contact {
-      background: var(--white);
+    /* ===== CONTACT ===== */
+    #contact { background: var(--off-white); }
+
+    .contact-wrapper {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
     }
 
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
+    .contact-wrapper h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      margin-bottom: 16px;
     }
 
-    .contact-info {
-      padding-right: 40px;
-    }
+    .contact-wrapper h2 em { color: var(--violet); font-style: italic; }
 
-    .contact-info h2 {
-      font-size: clamp(36px, 4vw, 48px);
-      margin-bottom: 24px;
-    }
-
-    .contact-info p {
+    .contact-sub {
       color: var(--grey);
       font-size: 18px;
       margin-bottom: 48px;
     }
 
-    .contact-details {
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-    }
-
-    .contact-detail-item {
-      display: flex;
-      gap: 20px;
-    }
-
-    .detail-icon {
-      width: 48px;
-      height: 48px;
-      background: var(--mako-sky);
-      color: var(--mako-blue);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      flex-shrink: 0;
-    }
-
-    .detail-text h4 {
-      font-size: 18px;
-      margin-bottom: 4px;
-    }
-
-    .detail-text p {
-      color: var(--grey);
-      font-size: 15px;
-      margin-bottom: 0;
-    }
-
-    /* Form Styles */
     .contact-form {
-      background: var(--bg-off-white);
-      padding: 48px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      margin-bottom: 24px;
+      text-align: left;
     }
 
     .form-group {
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     .form-group label {
       display: block;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--mako-navy);
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      font-size: 14px;
+      font-weight: 600;
       margin-bottom: 8px;
-    }
-
-    .form-control {
-      width: 100%;
-      padding: 16px;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      font-family: var(--font-body);
-      font-size: 15px;
       color: var(--dark);
-      transition: all 0.3s ease;
     }
 
-    .form-control:focus {
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      font-size: 15px;
+      font-family: 'DM Sans', sans-serif;
+      transition: border-color 0.2s;
+      background: var(--white);
+      color: var(--dark);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
       outline: none;
-      border-color: var(--mako-blue);
-      box-shadow: 0 0 0 4px rgba(0, 163, 255, 0.1);
+      border-color: var(--violet);
     }
 
-    textarea.form-control {
-      min-height: 150px;
-      resize: vertical;
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
     }
 
-    .btn-submit {
+    .form-submit {
       width: 100%;
       margin-top: 8px;
     }
 
+    .contact-direct {
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      font-size: 15px;
+      color: var(--grey);
+    }
+
+    .contact-direct a {
+      color: var(--violet);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
     /* ===== FOOTER ===== */
     footer {
-      background: var(--mako-navy);
-      color: var(--white);
-      padding: 80px 0 40px;
-      border-top: 4px solid var(--mako-blue);
+      padding: 48px 24px;
+      text-align: center;
+      border-top: 1px solid var(--border);
     }
 
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 64px;
-      margin-bottom: 64px;
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 8px;
     }
 
-    .footer-brand img {
-      height: 48px;
-      margin-bottom: 24px;
-    }
+    .footer-logo span { color: var(--violet); }
 
-    .footer-brand p {
-      color: var(--border);
-      font-size: 15px;
-      max-width: 400px;
-      margin-bottom: 32px;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 16px;
-    }
-
-    .social-links a {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.05);
-      color: var(--white);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-    }
-
-    .social-links a:hover {
-      background: var(--mako-blue);
-      transform: translateY(-2px);
-    }
-
-    .footer-contact h4 {
-      font-size: 18px;
-      color: var(--white);
-      margin-bottom: 24px;
-    }
-
-    .footer-contact p {
-      color: var(--border);
-      font-size: 15px;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .footer-contact i {
-      color: var(--mako-blue);
-    }
-
-    .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 32px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .footer-bottom p {
-      color: var(--grey);
+    .footer-tagline {
+      color: var(--grey-light);
       font-size: 14px;
+      font-style: italic;
+      margin-bottom: 16px;
     }
 
-    .violet-credit a {
-      color: var(--mako-blue);
-      font-weight: 600;
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 24px;
     }
 
-    .violet-credit a:hover {
-      color: var(--white);
+    .footer-links a {
+      color: var(--grey);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
     }
 
-    /* ===== ANIMATIONS & REVEALS ===== */
+    .footer-links a:hover { color: var(--violet); }
+
+    .footer-copy {
+      color: var(--grey-light);
+      font-size: 13px;
+    }
+
+    /* ===== ANIMATIONS ===== */
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(40px); }
+      from { opacity: 0; transform: translateY(24px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes fadeInRight {
-      from { opacity: 0; transform: translateX(40px); }
-      to { opacity: 1; transform: translateX(0); }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-12px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .reveal {
       opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+      transform: translateY(30px);
+      transition: all 0.6s ease;
     }
 
     .reveal.visible {
@@ -999,479 +889,362 @@
     }
 
     /* ===== RESPONSIVE ===== */
-    @media (max-width: 992px) {
-      .hero-grid, .process-container, .contact-grid, .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 48px;
-      }
-      
-      .hero-agent-card {
-        display: none; /* Hide on mobile to prioritize hero text */
-      }
-      
-      .hero {
-        padding-top: 140px;
-        padding-bottom: 80px;
-        align-items: flex-start;
-      }
-      
-      .contact-info {
-        padding-right: 0;
-      }
-      
-      .form-row {
-        grid-template-columns: 1fr;
-      }
-    }
-
     @media (max-width: 768px) {
-      nav { padding: 16px 0; }
-      
-      .nav-links {
-        position: fixed;
-        top: 73px;
-        left: 0;
-        width: 100%;
-        background: var(--mako-navy);
-        flex-direction: column;
-        padding: 40px 24px;
-        gap: 24px;
-        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-        transition: clip-path 0.4s ease;
-      }
-      
-      .nav-links.active {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-      }
-      
+      .nav-links { display: none; }
       .mobile-menu-btn { display: block; }
-      
-      section { padding: 80px 0; }
-      
-      .footer-bottom {
+
+      .nav-links.active {
+        display: flex;
         flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 24px;
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.08);
         gap: 16px;
-        text-align: center;
       }
+
+      .hero { padding: 120px 24px 80px; }
+      .hero-proof { gap: 24px; }
+      section { padding: 72px 24px; }
+
+      .pricing-card.featured { transform: none; }
+      .pricing-card.featured:hover { transform: translateY(-4px); }
+
+      .form-row { grid-template-columns: 1fr; }
+
+      .portfolio-preview { min-height: 280px; }
     }
   </style>
 </head>
 <body>
 
-  <nav id="navbar">
-    <div class="container nav-inner">
-      <a href="#" class="nav-logo">
-        <img src="./mako_logo.png" alt="Mako Buyers Agency">
-      </a>
-      
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#featured">Portfolio</a></li>
-        <li><a href="#process">Process</a></li>
-        <li><a href="#testimonials">Reviews</a></li>
-        <li><a href="#contact" class="nav-cta">Book a Strategy Call</a></li>
-      </ul>
-      
-      <button class="mobile-menu-btn" id="menuBtn">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
-  </nav>
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-icon">V</div>
+      <div class="nav-logo-text"><span>Violet</span> Web</div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact" class="nav-cta">Start a Project</a></li>
+    </ul>
+    <button class="mobile-menu-btn" id="menuBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
 
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-overlay"></div>
-    
-    <div class="container hero-content">
-      <div class="hero-grid">
-        <div class="hero-text-content">
-          <div class="hero-badge">
-            <i class="fas fa-map-marker-alt"></i> Sydney's Independent Buyer's Agent
-          </div>
-          <h1>Securing your dream home <em>at a dream price.</em></h1>
-          <p class="hero-sub">Expert search, appraisal, aggressive negotiation, and auction representation. We act exclusively for the buyer.</p>
-          <div class="hero-actions">
-            <a href="#contact" class="btn-primary">Engage Our Team</a>
-            <a href="#services" class="btn-outline">Discover How</a>
-          </div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">✦ Powered by Violet Media</div>
+  <h1>Websites that make your business <em>unforgettable</em></h1>
+  <p class="hero-sub">Cinematic, mobile-responsive websites for businesses and creators worldwide. AI-powered design. You own everything.</p>
+  <div class="hero-actions">
+    <a href="#contact" class="btn-primary">Start Your Project</a>
+    <a href="#portfolio" class="btn-secondary">See Our Work</a>
+  </div>
+  <div class="hero-proof">
+    <div class="proof-item">
+      <div class="number">14M+</div>
+      <div class="label">Views Across Platforms</div>
+    </div>
+    <div class="proof-item">
+      <div class="number">100%</div>
+      <div class="label">Client Ownership</div>
+    </div>
+    <div class="proof-item">
+      <div class="number">$800</div>
+      <div class="label">AUD Starting Price</div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="container">
+    <div class="section-label reveal">Our Work</div>
+    <h2 class="section-title reveal">Built to impress. Engineered to convert.</h2>
+    <p class="section-sub reveal">Every website we deliver is production-grade, mobile-responsive, and fully owned by you.</p>
+
+    <div class="portfolio-showcase">
+      <div class="portfolio-card reveal">
+        <div class="portfolio-browser">
+          <div class="browser-dots"><span></span><span></span><span></span></div>
+          <div class="browser-url">violetmedia.org</div>
         </div>
-        
-        <div class="hero-agent-card">
-          <div class="agent-image-wrapper">
-            <img src="./professional_agent_photo.jpg" alt="Helga Mako">
-          </div>
-          <div class="agent-info">
-            <div class="agent-avatar"><i class="fas fa-check"></i></div>
-            <div class="agent-details">
-              <h4>Helga Mako</h4>
-              <p>Lead Buyer's Agent</p>
+        <div class="portfolio-preview">
+          <div class="portfolio-preview-content">
+            <h3>The Cosmic Empire</h3>
+            <p>Violet Media Productions — violetmedia.org</p>
+            <div class="portfolio-stats">
+              <div class="stat"><div class="stat-num">14M+</div><div class="stat-label">Views</div></div>
+              <div class="stat"><div class="stat-num">718K+</div><div class="stat-label">Likes</div></div>
+              <div class="stat"><div class="stat-num">98.5%</div><div class="stat-label">FYP Traffic</div></div>
             </div>
           </div>
-          <div class="agent-quote">
-            "I will help you navigate the Sydney market and secure your asset with absolute confidence."
+        </div>
+        <div class="portfolio-info">
+          <div class="client">Violet Media Productions</div>
+          <h3>Cinematic Production House Website</h3>
+          <p>Full cinematic website with video hero, live statistics dashboard, integrated Spotify artist embed, AI technology showcase, services section, and contact system. Dark cosmic aesthetic with violet accents.</p>
+          <div class="portfolio-tags">
+            <span>Cinematic Design</span>
+            <span>Video Hero</span>
+            <span>Mobile Responsive</span>
+            <span>Spotify Integration</span>
+            <span>GitHub + Netlify</span>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="services">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-label">The Mako Advantage</div>
-        <h2 class="section-title">Total Market Dominance.</h2>
-        <p class="section-sub">We bring clarity, speed, and confidence to your purchase. By acting exclusively for you, we level the playing field.</p>
-      </div>
-      
-      <div class="services-grid">
-        <div class="service-card reveal">
-          <div class="service-icon"><i class="fas fa-search-location"></i></div>
-          <h3>Strategic Search</h3>
-          <p>Complete market coverage, including exclusive off-market and pre-market properties hidden from the general public. We find what others can't.</p>
-        </div>
-        
-        <div class="service-card reveal" style="transition-delay: 0.1s;">
-          <div class="service-icon"><i class="fas fa-file-contract"></i></div>
-          <h3>Aggressive Negotiation</h3>
-          <p>Data-driven property appraisals followed by strictly professional negotiation tactics. Our goal is to secure the asset below market expectations.</p>
-        </div>
-        
-        <div class="service-card reveal" style="transition-delay: 0.2s;">
-          <div class="service-icon"><i class="fas fa-gavel"></i></div>
-          <h3>Auction Bidding</h3>
-          <p>We remove the emotion. Professional, intimidating auction floor presence designed to outmaneuver the competition and execute the winning bid.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="featured">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-label">Portfolio</div>
-        <h2 class="section-title">The Sydney Standard.</h2>
-        <p class="section-sub">A glimpse into the caliber of coastal and executive properties we secure for our clients.</p>
-      </div>
-      
-      <div class="portfolio-grid">
-        <div class="portfolio-card reveal">
-          <img src="https://images.unsplash.com/photo-1613490908653-b673070f6e14?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Coastal Architecture" class="portfolio-image">
-          <div class="portfolio-overlay">
-            <h4>Coastal Architecture</h4>
-            <p>Eastern Suburbs</p>
-          </div>
-        </div>
-        
-        <div class="portfolio-card reveal" style="transition-delay: 0.1s;">
-          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Bespoke Interiors" class="portfolio-image">
-          <div class="portfolio-overlay">
-            <h4>Bespoke Interiors</h4>
-            <p>Northern Beaches</p>
-          </div>
-        </div>
-        
-        <div class="portfolio-card reveal" style="transition-delay: 0.2s;">
-          <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Executive Living" class="portfolio-image">
-          <div class="portfolio-overlay">
-            <h4>Executive Living</h4>
-            <p>Lower North Shore</p>
-          </div>
+          <a href="https://violetmedia.org" target="_blank" class="portfolio-link">View Live Site →</a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="process">
-    <div class="container">
-      <div class="process-container">
-        <div class="process-image reveal">
-          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Real Estate Consultation">
-        </div>
-        
-        <div class="process-content">
-          <div class="section-label reveal">Methodology</div>
-          <h2 class="section-title reveal">A transparent, proven process.</h2>
-          
-          <div class="process-list">
-            <div class="process-step reveal">
-              <div class="step-number">1</div>
-              <div class="step-content">
-                <h4>Discovery & Strategy</h4>
-                <p>We discuss your goals, budget, and preferred locations to build a hyper-focused acquisition brief.</p>
-              </div>
-            </div>
-            
-            <div class="process-step reveal" style="transition-delay: 0.1s;">
-              <div class="step-number">2</div>
-              <div class="step-content">
-                <h4>Sourcing & Shortlisting</h4>
-                <p>We utilize our network to inspect properties, filtering out the noise and presenting only the finest options.</p>
-              </div>
-            </div>
-            
-            <div class="process-step reveal" style="transition-delay: 0.2s;">
-              <div class="step-number">3</div>
-              <div class="step-content">
-                <h4>Appraisal & Due Diligence</h4>
-                <p>Rigorous property valuation and risk assessment to ensure you are buying a structurally and financially sound asset.</p>
-              </div>
-            </div>
-            
-            <div class="process-step reveal" style="transition-delay: 0.3s;">
-              <div class="step-number">4</div>
-              <div class="step-content">
-                <h4>Execution</h4>
-                <p>We negotiate terms or bid at auction, securing the property cleanly and effectively.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+<!-- PROCESS -->
+<section id="process">
+  <div class="container">
+    <div class="section-label reveal">How It Works</div>
+    <h2 class="section-title reveal">From brief to launch in 4 steps</h2>
+    <p class="section-sub reveal">A simple, transparent process. No surprises, no hidden fees.</p>
+
+    <div class="process-grid">
+      <div class="process-card reveal">
+        <div class="process-number">01</div>
+        <h3>Discovery</h3>
+        <p>We discuss your vision, audience, and goals. You tell me what your business needs — I translate that into a design brief.</p>
+      </div>
+      <div class="process-card reveal">
+        <div class="process-number">02</div>
+        <h3>Design & Build</h3>
+        <p>Using AI-powered workflows, I design and build your website with cinematic attention to detail. Fast turnaround without sacrificing quality.</p>
+      </div>
+      <div class="process-card reveal">
+        <div class="process-number">03</div>
+        <h3>Review & Refine</h3>
+        <p>You see the first draft and provide feedback. Two rounds of revisions are included to make sure every detail is right.</p>
+      </div>
+      <div class="process-card reveal">
+        <div class="process-number">04</div>
+        <h3>Launch & Handover</h3>
+        <p>Your site goes live. You get full ownership — domain, hosting, source code. No lock-in. It's yours forever.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="testimonials">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-label">Client Success</div>
-        <h2 class="section-title">Results that speak.</h2>
-      </div>
-      
-      <div class="testimonial-grid">
-        <div class="testimonial-card reveal">
-          <div class="quote-icon">"</div>
-          <div class="stars">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-          </div>
-          <p class="testimonial-text">Professional, transparent and results-driven. We felt supported from day one and they found an off-market gem we never would have seen.</p>
-          <div class="testimonial-author">
-            <h5>Happy Client</h5>
-            <p>First Home Buyer</p>
-          </div>
-        </div>
-        
-        <div class="testimonial-card reveal" style="transition-delay: 0.1s;">
-          <div class="quote-icon">"</div>
-          <div class="stars">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-          </div>
-          <p class="testimonial-text">Calm under pressure at auction and brilliant strategy throughout the whole process. Highly recommend Mako Buyers Agency.</p>
-          <div class="testimonial-author">
-            <h5>Property Investor</h5>
-            <p>Eastern Suburbs</p>
-          </div>
-        </div>
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div class="section-label reveal">Pricing</div>
+    <h2 class="section-title reveal">Transparent pricing. No hidden fees.</h2>
+    <p class="section-sub reveal">All prices in Australian Dollars (AUD). You own everything we build.</p>
+
+    <div class="pricing-grid">
+      <!-- STARTER -->
+      <div class="pricing-card reveal">
+        <div class="pricing-tier">Starter</div>
+        <div class="pricing-price">$800 <span>AUD</span></div>
+        <p class="pricing-desc">A clean, professional online presence for your business.</p>
+        <ul class="pricing-features">
+          <li>Single page with up to 5 sections</li>
+          <li>Mobile responsive design</li>
+          <li>Contact form</li>
+          <li>Basic SEO setup</li>
+          <li>Google Maps integration</li>
+          <li>2 rounds of revisions</li>
+          <li>Full source code ownership</li>
+        </ul>
+        <a href="#contact" class="pricing-cta pricing-cta-outline">Get Started</a>
       </div>
 
-      <div class="faq-container reveal">
-        <h3 class="section-title" style="text-align: center; font-size: 32px; margin-bottom: 40px;">Frequently Asked Questions</h3>
-        
-        <div class="faq-item">
-          <button class="faq-question">
-            Do you work with first-home buyers and investors?
-            <i class="fas fa-plus faq-icon"></i>
-          </button>
-          <div class="faq-answer">
-            <p>Yes. We tailor our service entirely to your goals—whether you are purchasing your first home, upsizing for a family, downsizing, or expanding a property investment portfolio.</p>
-          </div>
-        </div>
-        
-        <div class="faq-item">
-          <button class="faq-question">
-            How do your fees work?
-            <i class="fas fa-plus faq-icon"></i>
-          </button>
-          <div class="faq-answer">
-            <p>We offer full end-to-end "Search & Buy" packages, as well as focused standalone services like Appraisal & Negotiation or Auction Bidding. All fees are transparently outlined in writing before any engagement begins.</p>
-          </div>
-        </div>
-        
-        <div class="faq-item">
-          <button class="faq-question">
-            Can you access off-market properties?
-            <i class="fas fa-plus faq-icon"></i>
-          </button>
-          <div class="faq-answer">
-            <p>Absolutely. A significant advantage of using a buyers agency is our established network of real estate professionals. We regularly access pre-market and off-market opportunities before they hit the public portals.</p>
-          </div>
-        </div>
+      <!-- STANDARD -->
+      <div class="pricing-card featured reveal">
+        <div class="pricing-tier">Standard</div>
+        <div class="pricing-price">$1,500 <span>AUD</span></div>
+        <p class="pricing-desc">A custom-designed website that sets you apart from the competition.</p>
+        <ul class="pricing-features">
+          <li>Multi-page (up to 5 pages)</li>
+          <li>Custom design tailored to your brand</li>
+          <li>Image gallery / portfolio section</li>
+          <li>Social media integration</li>
+          <li>Google Maps + analytics</li>
+          <li>2 rounds of revisions</li>
+          <li>Full source code ownership</li>
+        </ul>
+        <a href="#contact" class="pricing-cta pricing-cta-fill">Get Started</a>
+      </div>
+
+      <!-- PREMIUM -->
+      <div class="pricing-card reveal">
+        <div class="pricing-tier">Premium</div>
+        <div class="pricing-price">$3,000 <span>AUD</span></div>
+        <p class="pricing-desc">A cinematic experience like violetmedia.org — for businesses that demand the best.</p>
+        <ul class="pricing-features">
+          <li>Full cinematic design with animations</li>
+          <li>Video hero section</li>
+          <li>Brand identity integration</li>
+          <li>Advanced SEO + CMS setup</li>
+          <li>Custom interactions and effects</li>
+          <li>2 rounds of revisions</li>
+          <li>Full source code ownership</li>
+        </ul>
+        <a href="#contact" class="pricing-cta pricing-cta-outline">Get Started</a>
       </div>
     </div>
-  </section>
 
-  <section id="contact">
-    <div class="container">
-      <div class="contact-grid">
-        <div class="contact-info reveal">
-          <div class="section-label">Contact Us</div>
-          <h2>Let's talk about your brief.</h2>
-          <p>Send a message and we'll get back to you promptly to discuss your property goals and how we can secure your next asset.</p>
-          
-          <div class="contact-details">
-            <div class="contact-detail-item">
-              <div class="detail-icon"><i class="fas fa-map-marker-alt"></i></div>
-              <div class="detail-text">
-                <h4>Our Office</h4>
-                <p>Sydney, NSW<br>Available by appointment.</p>
-              </div>
-            </div>
-            
-            <div class="contact-detail-item">
-              <div class="detail-icon"><i class="fas fa-envelope"></i></div>
-              <div class="detail-text">
-                <h4>Direct Email</h4>
-                <p>zoltan@makoba.com.au</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="contact-form-wrapper reveal" style="transition-delay: 0.2s;">
-          <form class="contact-form" action="https://formsubmit.co/zoltan@makoba.com.au" method="POST">
-            <input type="hidden" name="_subject" value="New Inquiry from Mako Buyers Agency Website">
-            <input type="hidden" name="_captcha" value="false">
-            
-            <div class="form-row">
-              <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" class="form-control" required placeholder="John Doe">
-              </div>
-              <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" class="form-control" required placeholder="john@example.com">
-              </div>
-            </div>
-            
-            <div class="form-row">
-              <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" class="form-control" placeholder="0400 000 000">
-              </div>
-              <div class="form-group">
-                <label for="budget">Approx. Budget</label>
-                <input type="text" id="budget" name="budget" class="form-control" placeholder="$1.5M - $2M">
-              </div>
-            </div>
-            
-            <div class="form-group">
-              <label for="suburbs">Preferred Suburbs</label>
-              <input type="text" id="suburbs" name="suburbs" class="form-control" placeholder="e.g. Bondi, Manly, Mosman">
-            </div>
-            
-            <div class="form-group">
-              <label for="message">How can we help?</label>
-              <textarea id="message" name="message" class="form-control" required placeholder="Tell us about the property you are looking to purchase..."></textarea>
-            </div>
-            
-            <button type="submit" class="btn-primary btn-submit">Send Enquiry</button>
-          </form>
-        </div>
+    <p class="pricing-note reveal">
+      <strong>Optional maintenance:</strong> $150–$200 AUD/month for ongoing updates and support.<br>
+      <strong>Payment:</strong> 50% deposit to start. 50% on completion. Bank transfer or PayPal.
+    </p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-label reveal">FAQ</div>
+    <h2 class="section-title reveal">Common questions</h2>
+    <p class="section-sub reveal">Everything you need to know before starting a project.</p>
+
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-question">Do I own my website after it's built? <span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>Yes — 100%. You own the domain, the hosting account, and every line of source code. There is no vendor lock-in. You are free to move, modify, or manage your site independently at any time. It's yours forever.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">What does "AI-powered design" mean? <span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>We use artificial intelligence tools to accelerate the design and development process — from generating visual concepts to writing optimised code. Every output is directed, reviewed, and refined by a human creative director. The result: faster delivery, higher quality, lower cost than traditional agencies.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">How long does it take? <span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>Most projects are delivered within 7–14 days depending on the package. Starter sites can be ready in as little as 5 days. The timeline depends on how quickly you provide feedback during the revision rounds.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">What's included in revisions? <span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>Every package includes 2 rounds of revisions. A revision round is one consolidated set of feedback. Additional rounds can be arranged at a separate quoted rate. Revisions cover design changes, content updates, and layout adjustments within the original scope.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">Do I need to provide content and images? <span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>If you have brand assets (logo, images, copy), we'll integrate them. If not, we can help source or create appropriate content as part of the design process. We'll discuss this during the discovery phase.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">Is there ongoing hosting costs? <span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>We deploy on Netlify which offers a generous free tier — so hosting is typically free. Your only recurring cost is the domain name (around $20 AUD/year). Optional maintenance retainers start at $150 AUD/month if you want ongoing support and updates.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">Can you work with clients outside Australia? <span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>Absolutely. We deliver 100% remotely and work with clients anywhere in the world. All communication is via email and video call. Prices are quoted in AUD regardless of your location.</p></div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <img src="./mako_logo.png" alt="Mako Buyers Agency">
-          <p>Exclusive buyer representation in the Sydney real estate market. We level the playing field to secure your ideal property.</p>
-          <div class="social-links">
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-wrapper">
+      <div class="section-label reveal">Start a Project</div>
+      <h2 class="reveal">Let's build something <em>legendary</em></h2>
+      <p class="contact-sub reveal">Tell us about your project and we'll get back to you within 24 hours.</p>
+
+      <form class="contact-form reveal" action="https://formsubmit.co/violetmediastudio@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New Web Design Inquiry — web.violetmedia.org">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://web.violetmedia.org/#contact">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="jane@company.com" required>
           </div>
         </div>
-        
-        <div class="footer-contact">
-          <h4>Contact The Agency</h4>
-          <p><i class="fas fa-envelope"></i> zoltan@makoba.com.au</p>
-          <p><i class="fas fa-map-marker-alt"></i> Sydney, NSW</p>
+        <div class="form-group">
+          <label for="business">Business Name</label>
+          <input type="text" id="business" name="business" placeholder="Your business or brand name">
         </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <p>&copy; 2026 Mako Buyers Agency. All rights reserved.</p>
-        <p class="violet-credit">Built by <a href="https://violetmedia.org" target="_blank">Violet Media</a></p>
+        <div class="form-group">
+          <label for="package">Interested In</label>
+          <select id="package" name="package">
+            <option value="">Select a package...</option>
+            <option value="Starter ($800 AUD)">Starter — $800 AUD</option>
+            <option value="Standard ($1,500 AUD)">Standard — $1,500 AUD</option>
+            <option value="Premium ($3,000 AUD)">Premium — $3,000 AUD</option>
+            <option value="Not sure yet">Not sure yet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Tell us about your project</label>
+          <textarea id="message" name="message" placeholder="What does your business do? Do you have an existing website? What are your goals?"></textarea>
+        </div>
+        <button type="submit" class="btn-primary form-submit">Send Inquiry</button>
+      </form>
+
+      <div class="contact-direct reveal">
+        Or email us directly at <a href="mailto:violetmediastudio@gmail.com">violetmediastudio@gmail.com</a>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    // Navbar Scroll Effect
-    window.addEventListener('scroll', () => {
-      const nav = document.getElementById('navbar');
-      if (window.scrollY > 50) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><span>Violet</span> Media</div>
+  <div class="footer-tagline">Quality is for the ages.</div>
+  <div class="footer-links">
+    <a href="https://violetmedia.org" target="_blank">violetmedia.org</a>
+    <a href="https://www.tiktok.com/@cosmictease" target="_blank">TikTok</a>
+    <a href="https://youtube.com/@cosmic_tease" target="_blank">YouTube</a>
+    <a href="https://linkedin.com/in/petersarosi" target="_blank">LinkedIn</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 Violet Media Productions. ABN 20 188 436 344. Perth, Western Australia.</div>
+</footer>
+
+<script>
+  // Mobile menu
+  document.getElementById('menuBtn').addEventListener('click', function() {
+    document.getElementById('navLinks').classList.toggle('active');
+  });
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('active');
+    });
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const wasActive = item.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+      if (!wasActive) item.classList.add('active');
+    });
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
       }
     });
+  }, { threshold: 0.1 });
 
-    // Mobile Menu Toggle
-    const menuBtn = document.getElementById('menuBtn');
-    const navLinks = document.getElementById('navLinks');
-    
-    menuBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      const icon = menuBtn.querySelector('i');
-      if(navLinks.classList.contains('active')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-      } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-      }
-    });
-
-    // Close mobile menu when clicking a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        const icon = menuBtn.querySelector('i');
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-      });
-    });
-
-    // FAQ Accordion
-    document.querySelectorAll('.faq-question').forEach(button => {
-      button.addEventListener('click', () => {
-        const item = button.parentElement;
-        const isActive = item.classList.contains('active');
-        
-        // Close all other items
-        document.querySelectorAll('.faq-item').forEach(faqItem => {
-          faqItem.classList.remove('active');
-        });
-        
-        // Toggle current item
-        if (!isActive) {
-          item.classList.add('active');
-        }
-      });
-    });
-
-    // Intersection Observer for Scroll Reveals
-    const revealOptions = {
-      threshold: 0.15,
-      rootMargin: "0px 0px -50px 0px"
-    };
-
-    const revealObserver = new IntersectionObserver(function(entries, observer) {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) {
-          return;
-        }
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      });
-    }, revealOptions);
-
-    document.querySelectorAll('.reveal').forEach(el => {
-      revealObserver.observe(el);
-    });
-  </script>
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
