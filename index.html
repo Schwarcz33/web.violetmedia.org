@@ -1192,7 +1192,7 @@
       </form>
 
       <div class="contact-direct reveal">
-        Or email us directly at <a href="/cdn-cgi/l/email-protection#e4928d8b8881908981808d85979091808d8ba48389858d88ca878b89"><span class="__cf_email__" data-cfemail="a8dec1c7c4cddcc5cdccc1c9dbdcddccc1c7e8cfc5c9c1c486cbc7c5">[email&#160;protected]</span></a>
+        Or email us directly at <a href="mailto:violetmediastudio@gmail.com">violetmediastudio@gmail.com</a>
       </div>
     </div>
   </div>
@@ -1211,7 +1211,7 @@
   <div class="footer-copy">&copy; 2026 Violet Media Productions. ABN 20 188 436 344. Perth, Western Australia.</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Mobile menu
   document.getElementById('menuBtn').addEventListener('click', function() {
     document.getElementById('navLinks').classList.toggle('active');
@@ -1236,3 +1236,15 @@
 
   // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
