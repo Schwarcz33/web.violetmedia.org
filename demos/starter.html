@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bella's Bakery — Fresh Artisan Bakes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      color: #333;
+      background: #FFF8F0;
+      padding-top: 38px;
+    }
+
+    h1, h2, h3 { font-family: 'Lora', serif; color: #5C3D2E; }
+
+    /* --- Violet Media Banner --- */
+    .vm-banner {
+      position: fixed; top: 0; left: 0; width: 100%;
+      z-index: 1000;
+      background: rgba(5,2,20,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      padding: 10px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
+    }
+    .vm-banner a {
+      color: #A855F7;
+      text-decoration: none;
+      margin-left: 6px;
+      font-weight: 600;
+    }
+    .vm-banner a:hover { text-decoration: underline; }
+
+    /* --- Navigation --- */
+    nav {
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .logo { font-family: 'Lora', serif; font-size: 22px; color: #5C3D2E; font-weight: 700; }
+    nav ul { list-style: none; display: flex; gap: 24px; }
+    nav ul li a {
+      text-decoration: none; color: #5C3D2E;
+      font-size: 15px; font-weight: 600;
+    }
+    nav ul li a:hover { color: #B8866B; }
+
+    /* --- Sections --- */
+    section { padding: 64px 24px; max-width: 960px; margin: 0 auto; }
+    .section-title { text-align: center; font-size: 28px; margin-bottom: 12px; }
+    .section-sub {
+      text-align: center; color: #B8866B;
+      font-size: 15px; margin-bottom: 40px;
+    }
+
+    /* --- Hero --- */
+    .hero {
+      background: #5C3D2E;
+      color: #FFF8F0;
+      text-align: center;
+      padding: 100px 24px;
+      max-width: 100%;
+    }
+    .hero h1 { color: #FFF8F0; font-size: 42px; margin-bottom: 16px; }
+    .hero p { font-size: 18px; max-width: 520px; margin: 0 auto 28px; opacity: 0.9; }
+    .hero-btn {
+      display: inline-block; padding: 12px 32px;
+      background: #B8866B; color: #fff;
+      text-decoration: none; border-radius: 4px;
+      font-weight: 600; font-size: 15px;
+    }
+    .hero-btn:hover { background: #a3745b; }
+
+    /* --- About --- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .about-img {
+      background: #EDE0D4;
+      height: 280px;
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      color: #B8866B; font-size: 14px;
+    }
+    .about-text p { line-height: 1.75; color: #555; margin-bottom: 14px; }
+
+    /* --- Menu --- */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .menu-card {
+      background: #fff;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid #f0e6db;
+    }
+    .menu-card-img {
+      height: 160px;
+      background: #EDE0D4;
+      display: flex; align-items: center; justify-content: center;
+      color: #B8866B; font-size: 13px;
+    }
+    .menu-card-body { padding: 16px; }
+    .menu-card-body h3 { font-size: 17px; margin-bottom: 4px; }
+    .menu-card-body .price { color: #B8866B; font-weight: 600; font-size: 15px; }
+    .menu-card-body p { font-size: 13px; color: #777; margin-top: 6px; line-height: 1.5; }
+
+    /* --- Location --- */
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .map-placeholder {
+      background: #EDE0D4;
+      height: 280px;
+      border-radius: 6px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      color: #B8866B; gap: 10px;
+    }
+    .map-placeholder svg { width: 40px; height: 40px; fill: #B8866B; }
+    .location-info h3 { font-size: 18px; margin-bottom: 12px; }
+    .location-info p { color: #555; line-height: 1.8; font-size: 15px; }
+
+    /* --- Contact --- */
+    .contact-form {
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .contact-form label {
+      display: block; font-weight: 600;
+      margin-bottom: 6px; font-size: 14px; color: #5C3D2E;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%; padding: 10px 14px;
+      border: 1px solid #ddd; border-radius: 4px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 14px; margin-bottom: 18px;
+      background: #fff;
+    }
+    .contact-form textarea { height: 120px; resize: vertical; }
+    .contact-form input:focus,
+    .contact-form textarea:focus { outline: none; border-color: #B8866B; }
+    .submit-btn {
+      display: inline-block; padding: 12px 36px;
+      background: #5C3D2E; color: #fff;
+      border: none; border-radius: 4px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600; font-size: 15px; cursor: pointer;
+    }
+    .submit-btn:hover { background: #4a3124; }
+
+    /* --- Footer --- */
+    footer {
+      text-align: center;
+      padding: 28px 24px;
+      font-size: 13px;
+      color: #999;
+      border-top: 1px solid #eee;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+      nav ul { display: none; }
+      .hero h1 { font-size: 30px; }
+      .hero { padding: 64px 24px; }
+      .about-grid,
+      .location-grid { grid-template-columns: 1fr; }
+      .menu-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .menu-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Violet Media Banner -->
+<div class="vm-banner">
+  This is a Starter tier example by Violet Media
+  <a href="https://web.violetmedia.org/#pricing">Get yours &rarr;</a>
+</div>
+
+<!-- Navigation -->
+<nav>
+  <div class="logo">Bella's Bakery</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#location">Location</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <h1>Freshly Baked, Made with Love</h1>
+  <p>Artisan breads, pastries, and cakes crafted daily in the heart of Melbourne. Come taste the difference.</p>
+  <a href="#menu" class="hero-btn">View Our Menu</a>
+</section>
+
+<!-- About -->
+<section id="about">
+  <h2 class="section-title">Our Story</h2>
+  <p class="section-sub">Baking with passion since 2018</p>
+  <div class="about-grid">
+    <div class="about-img">[Bakery Interior Photo]</div>
+    <div class="about-text">
+      <p>Bella's Bakery started as a small home kitchen project and grew into one of Melbourne's most loved neighbourhood bakeries. Every loaf, pastry, and cake is handcrafted using locally sourced ingredients.</p>
+      <p>We believe that great baking is simple — quality flour, real butter, fresh eggs, and a whole lot of patience. No shortcuts, no preservatives, just honest food made the old-fashioned way.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Menu -->
+<section id="menu">
+  <h2 class="section-title">Our Menu</h2>
+  <p class="section-sub">A small selection of our daily favourites</p>
+  <div class="menu-grid">
+    <div class="menu-card">
+      <div class="menu-card-img">[Sourdough Photo]</div>
+      <div class="menu-card-body">
+        <h3>Sourdough Loaf</h3>
+        <span class="price">$9.50</span>
+        <p>Slow-fermented for 24 hours with a crisp crust and soft, tangy crumb.</p>
+      </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-card-img">[Croissant Photo]</div>
+      <div class="menu-card-body">
+        <h3>Butter Croissant</h3>
+        <span class="price">$5.50</span>
+        <p>Flaky, golden layers of French-style pastry made with real butter.</p>
+      </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-card-img">[Cake Photo]</div>
+      <div class="menu-card-body">
+        <h3>Lemon Drizzle Cake</h3>
+        <span class="price">$7.00</span>
+        <p>Light sponge soaked in lemon syrup and topped with a zesty glaze.</p>
+      </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-card-img">[Cinnamon Roll Photo]</div>
+      <div class="menu-card-body">
+        <h3>Cinnamon Roll</h3>
+        <span class="price">$6.00</span>
+        <p>Soft, swirled dough with cinnamon sugar and cream cheese icing.</p>
+      </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-card-img">[Focaccia Photo]</div>
+      <div class="menu-card-body">
+        <h3>Rosemary Focaccia</h3>
+        <span class="price">$8.00</span>
+        <p>Olive oil-rich Italian flatbread with sea salt and fresh rosemary.</p>
+      </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-card-img">[Brownie Photo]</div>
+      <div class="menu-card-body">
+        <h3>Dark Choc Brownie</h3>
+        <span class="price">$5.00</span>
+        <p>Dense, fudgy, and made with 70% dark chocolate. Gluten-free option available.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Location -->
+<section id="location">
+  <h2 class="section-title">Find Us</h2>
+  <p class="section-sub">We'd love to see you in store</p>
+  <div class="location-grid">
+    <div class="map-placeholder">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+      <span>Google Maps Integration</span>
+    </div>
+    <div class="location-info">
+      <h3>Bella's Bakery</h3>
+      <p>
+        42 Chapel Street<br>
+        Windsor, VIC 3181<br><br>
+        <strong>Hours</strong><br>
+        Mon — Fri: 7:00am – 4:00pm<br>
+        Sat — Sun: 8:00am – 3:00pm<br><br>
+        <strong>Phone</strong><br>
+        (03) 9555 1234
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <h2 class="section-title">Get in Touch</h2>
+  <p class="section-sub">Questions, custom orders, or catering enquiries</p>
+  <form class="contact-form">
+    <label for="name">Name</label>
+    <input type="text" id="name" placeholder="Your name">
+    <label for="email">Email</label>
+    <input type="email" id="email" placeholder="you@example.com">
+    <label for="message">Message</label>
+    <textarea id="message" placeholder="How can we help?"></textarea>
+    <button type="button" class="submit-btn">Send Message</button>
+  </form>
+</section>
+
+<!-- Footer -->
+<footer>
+  &copy; 2026 Bella's Bakery. All rights reserved. &mdash; Site by Violet Media
+</footer>
+
+</body>
+</html>
