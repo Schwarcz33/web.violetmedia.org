@@ -143,21 +143,43 @@ body{font-family:'DM Sans',sans-serif;background:var(--noir);color:var(--warm-wh
 .testimonial-role{font-size:.8rem;color:var(--gold);letter-spacing:1px;margin-top:4px}
 
 /* CONTACT */
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;max-width:1100px;margin:0 auto;align-items:start}
+.contact-wrapper{max-width:1200px;margin:0 auto}
+.contact-top{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:start;margin-bottom:60px}
 .contact-info p{color:rgba(245,240,232,0.5);margin-bottom:16px;font-size:1.02rem}
 .contact-detail{margin-top:40px;display:flex;flex-direction:column;gap:20px}
 .contact-detail-item .detail-label{font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
 .contact-detail-item .detail-value{color:rgba(245,240,232,0.6);font-size:.95rem}
-.contact-form{display:flex;flex-direction:column;gap:20px}
+
+/* 3D FORM CARD */
+.form-3d-wrapper{perspective:1200px}
+.form-3d-card{background:linear-gradient(145deg,rgba(28,28,28,0.7),rgba(15,15,15,0.9));backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(201,168,76,0.15);padding:48px 44px;position:relative;overflow:hidden;transition:transform .6s ease,box-shadow .6s ease;transform-style:preserve-3d;will-change:transform}
+.form-3d-card:hover{box-shadow:0 30px 80px rgba(201,168,76,0.1),0 0 60px rgba(201,168,76,0.04),0 10px 40px rgba(0,0,0,0.5)}
+.form-3d-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.5),transparent)}
+.form-3d-card::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 0%,rgba(201,168,76,0.06),transparent 70%);pointer-events:none}
+.form-3d-glow{position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,0.08),transparent 70%);pointer-events:none;transition:opacity .4s;opacity:0;transform:translate(-50%,-50%);z-index:0}
+.form-3d-card:hover .form-3d-glow{opacity:1}
+.form-card-header{margin-bottom:32px;position:relative;z-index:1}
+.form-card-header h3{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--warm-white);font-weight:600;margin-bottom:8px}
+.form-card-header p{font-size:.88rem;color:rgba(245,240,232,0.4)}
+.contact-form{display:flex;flex-direction:column;gap:20px;position:relative;z-index:1}
 .form-group{position:relative}
-.form-group input,.form-group textarea{width:100%;padding:16px 20px;background:rgba(28,28,28,0.5);border:1px solid rgba(245,240,232,0.08);color:var(--warm-white);font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:300;outline:none;transition:border-color .4s,box-shadow .4s}
-.form-group textarea{resize:vertical;min-height:140px}
-.form-group input:focus,.form-group textarea:focus{border-color:var(--gold);box-shadow:0 0 20px rgba(201,168,76,0.08)}
-.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(245,240,232,0.25)}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:18px 22px;background:rgba(10,10,10,0.6);border:1px solid rgba(245,240,232,0.08);color:var(--warm-white);font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:300;outline:none;transition:border-color .4s,box-shadow .4s,background .4s}
+.form-group select{appearance:none;-webkit-appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C9A84C' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 20px center}
+.form-group select option{background:#1C1C1C;color:var(--warm-white)}
+.form-group textarea{resize:vertical;min-height:120px}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);box-shadow:0 0 24px rgba(201,168,76,0.1),inset 0 0 12px rgba(201,168,76,0.03);background:rgba(15,12,8,0.7)}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(245,240,232,0.2)}
+.form-group label{display:block;font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;font-weight:400}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.form-submit{align-self:flex-start;padding:16px 52px;background:transparent;border:1px solid var(--gold);color:var(--gold);font-family:'DM Sans',sans-serif;font-size:.8rem;letter-spacing:3px;text-transform:uppercase;cursor:pointer;font-weight:500;transition:all .5s ease;position:relative;overflow:hidden}
+.form-row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.form-submit{width:100%;padding:18px 52px;background:transparent;border:1px solid var(--gold);color:var(--gold);font-family:'DM Sans',sans-serif;font-size:.82rem;letter-spacing:3px;text-transform:uppercase;cursor:pointer;font-weight:500;transition:all .5s ease;position:relative;overflow:hidden;margin-top:8px}
 .form-submit::before{content:'';position:absolute;inset:0;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .5s ease;z-index:-1}
 .form-submit:hover{color:var(--noir)}.form-submit:hover::before{transform:scaleX(1)}
+
+/* DARK MAP */
+.contact-map{margin-top:0;border:1px solid rgba(201,168,76,0.1);overflow:hidden;position:relative}
+.contact-map iframe{width:100%;height:280px;border:none;filter:invert(0.92) hue-rotate(180deg) brightness(0.8) contrast(1.1) saturate(0.2)}
+.contact-map::after{content:'';position:absolute;inset:0;border:1px solid rgba(201,168,76,0.08);pointer-events:none}
 
 /* FOOTER */
 .footer{padding:48px 60px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(245,240,232,0.06);position:relative;z-index:1}
@@ -189,8 +211,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--noir);color:var(--warm-wh
   .about-grid{grid-template-columns:1fr}.about-image{max-height:400px}
   .portfolio-grid{grid-template-columns:1fr;grid-auto-rows:220px}
   .portfolio-grid .item:nth-child(1){grid-row:span 1}
-  .contact-grid{grid-template-columns:1fr;gap:48px}
+  .contact-top{grid-template-columns:1fr;gap:40px}
   .form-row{grid-template-columns:1fr}
+  .form-row-3{grid-template-columns:1fr}
   .footer{flex-direction:column;gap:16px;text-align:center;padding:48px 24px}
   .footer-nav{flex-wrap:wrap;justify-content:center}
   .parallax-stat-row{gap:40px}
@@ -325,24 +348,48 @@ body{font-family:'DM Sans',sans-serif;background:var(--noir);color:var(--warm-wh
 </section>
 
 <section class="section" id="contact">
-  <div class="contact-grid">
-    <div class="contact-info">
-      <p class="section-label reveal">Get in Touch</p>
-      <h2 class="section-title reveal reveal-delay-1">Let&rsquo;s Create<br>Something Extraordinary</h2>
-      <div class="section-line reveal reveal-delay-2"></div>
-      <p class="reveal reveal-delay-2">Every great space begins with a conversation. Reach out to discuss your vision, and we&rsquo;ll show you what&rsquo;s possible.</p>
-      <div class="contact-detail reveal reveal-delay-3">
-        <div class="contact-detail-item"><p class="detail-label">Studio</p><p class="detail-value">42 St Georges Terrace, Perth WA 6000</p></div>
-        <div class="contact-detail-item"><p class="detail-label">Enquiries</p><p class="detail-value">hello@noirco.com.au</p></div>
-        <div class="contact-detail-item"><p class="detail-label">Phone</p><p class="detail-value">+61 8 9200 4500</p></div>
+  <div class="contact-wrapper">
+    <div class="contact-top">
+      <div class="contact-info">
+        <p class="section-label reveal">Get in Touch</p>
+        <h2 class="section-title reveal reveal-delay-1">Let&rsquo;s Create<br>Something Extraordinary</h2>
+        <div class="section-line reveal reveal-delay-2"></div>
+        <p class="reveal reveal-delay-2">Every great space begins with a conversation. Reach out to discuss your vision, and we&rsquo;ll show you what&rsquo;s possible.</p>
+        <div class="contact-detail reveal reveal-delay-3">
+          <div class="contact-detail-item"><p class="detail-label">Studio</p><p class="detail-value">42 St Georges Terrace, Perth WA 6000</p></div>
+          <div class="contact-detail-item"><p class="detail-label">Enquiries</p><p class="detail-value">hello@noirco.com.au</p></div>
+          <div class="contact-detail-item"><p class="detail-label">Phone</p><p class="detail-value">+61 8 9200 4500</p></div>
+        </div>
+      </div>
+      <div class="form-3d-wrapper reveal reveal-delay-2">
+        <div class="form-3d-card" id="form3dCard">
+          <div class="form-3d-glow" id="formGlow"></div>
+          <div class="form-card-header">
+            <h3>Start Your Project</h3>
+            <p>Tell us about your vision and we&rsquo;ll be in touch within 24 hours.</p>
+          </div>
+          <form class="contact-form" onsubmit="event.preventDefault()">
+            <div class="form-row">
+              <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your name" required></div>
+              <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com" required></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Phone</label><input type="tel" placeholder="+61 4XX XXX XXX"></div>
+              <div class="form-group"><label>Project Type</label><select><option value="" disabled selected>Select a service</option><option>Residential Design</option><option>Commercial Spaces</option><option>Design Consultation</option><option>Full Renovation</option></select></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Budget Range</label><select><option value="" disabled selected>Select budget</option><option>$50,000 &ndash; $100,000</option><option>$100,000 &ndash; $250,000</option><option>$250,000 &ndash; $500,000</option><option>$500,000+</option></select></div>
+              <div class="form-group"><label>Timeline</label><select><option value="" disabled selected>Preferred start</option><option>Within 1 month</option><option>1 &ndash; 3 months</option><option>3 &ndash; 6 months</option><option>Flexible</option></select></div>
+            </div>
+            <div class="form-group"><label>Your Vision</label><textarea placeholder="Describe the space, your style preferences, inspiration, and anything else that will help us understand your dream..."></textarea></div>
+            <button type="submit" class="form-submit">Send Enquiry</button>
+          </form>
+        </div>
       </div>
     </div>
-    <form class="contact-form reveal reveal-delay-2" onsubmit="event.preventDefault()">
-      <div class="form-row"><div class="form-group"><input type="text" placeholder="Full Name" required></div><div class="form-group"><input type="email" placeholder="Email" required></div></div>
-      <div class="form-group"><input type="text" placeholder="Project Type (Residential, Commercial, Consultation)"></div>
-      <div class="form-group"><textarea placeholder="Tell us about your vision..."></textarea></div>
-      <button type="submit" class="form-submit">Send Enquiry</button>
-    </form>
+    <div class="contact-map reveal">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3385.5!2d115.8605!3d-31.9535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2a32bad5c7b4fa1d%3A0x8e1b2e3f4a5b6c7d!2s42%20St%20Georges%20Terrace%2C%20Perth%20WA%206000!5e0!3m2!1sen!2sau!4v1710000000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Noir &amp; Co. Studio Location"></iframe>
+    </div>
   </div>
 </section>
 
@@ -468,6 +515,26 @@ document.querySelectorAll('.nav-links a[href^="#"]').forEach(function(link){
 // Scroll reveal
 var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:0.1});
 document.querySelectorAll('.reveal').forEach(function(el){observer.observe(el)});
+
+// 3D Form Card Tilt
+var formCard=document.getElementById('form3dCard'),formGlow=document.getElementById('formGlow');
+if(formCard){
+  formCard.addEventListener('mousemove',function(e){
+    var rect=formCard.getBoundingClientRect();
+    var x=(e.clientX-rect.left)/rect.width;
+    var y=(e.clientY-rect.top)/rect.height;
+    var tiltX=(y-.5)*-8;
+    var tiltY=(x-.5)*8;
+    formCard.style.transform='rotateX('+tiltX+'deg) rotateY('+tiltY+'deg) translateZ(10px)';
+    formGlow.style.left=e.clientX-rect.left+'px';
+    formGlow.style.top=e.clientY-rect.top+'px';
+    formGlow.style.opacity='1';
+  });
+  formCard.addEventListener('mouseleave',function(){
+    formCard.style.transform='rotateX(0) rotateY(0) translateZ(0)';
+    formGlow.style.opacity='0';
+  });
+}
 
 // Parallax on scroll
 var parallaxBg=document.getElementById('parallaxBg');
