@@ -6,7 +6,9 @@
   <title>Violet Media &#8212; Web Design</title>
   <meta name="description" content="Cinematic, mobile-responsive websites for businesses worldwide. AI-powered design, hosting included. Starting at $800 AUD.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <style>
     :root {
       --violet: #8A2BE2;
@@ -36,17 +38,24 @@
     .particle { position: absolute; border-radius: 50%; animation: drift linear infinite; }
     @keyframes drift { 0% { transform: translateY(0) translateX(0); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(-110vh) translateX(40px); opacity: 0; } }
 
-    /* NAV */
-    nav { position: fixed; top: 0; width: 100%; z-index: 100; background: rgba(5,2,20,0.75); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border); transition: all 0.3s ease; }
+    /* DRAMA FONT */
+    .font-drama { font-family: 'Playfair Display', Georgia, serif; }
+
+    /* NOISE OVERLAY */
+    .noise-overlay { position: fixed; inset: 0; pointer-events: none; z-index: 40; opacity: 0.045; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); mix-blend-mode: overlay; }
+
+    /* NAV — Morphing Floating Pill */
+    nav { position: fixed; top: 16px; left: 50%; transform: translateX(-50%); width: 94%; max-width: 1100px; z-index: 100; background: transparent; border: 1px solid transparent; border-radius: 999px; transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    nav.scrolled { background: rgba(5,2,20,0.60); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-color: rgba(138,43,226,0.18); box-shadow: 0 8px 32px rgba(0,0,0,0.3), 0 0 40px rgba(138,43,226,0.08); }
     .nav-inner { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
     .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
     .nav-logo-icon { width: 36px; height: 36px; background: var(--violet); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-family: 'Space Grotesk', sans-serif; font-weight: 800; font-size: 18px; box-shadow: 0 0 16px rgba(138,43,226,0.4); }
     .nav-logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: var(--white); }
     .nav-logo-text span { color: var(--violet-light); }
-    .nav-links { display: flex; gap: 32px; align-items: center; list-style: none; }
-    .nav-links a { text-decoration: none; color: var(--text-dim); font-size: 15px; font-weight: 500; transition: color 0.2s; }
+    .nav-links { display: flex; gap: 24px; align-items: center; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--text-dim); font-size: 14px; font-weight: 500; transition: color 0.2s; white-space: nowrap; }
     .nav-links a:hover { color: var(--white); }
-    .nav-cta { background: var(--violet) !important; color: white !important; padding: 10px 24px; border-radius: 999px; font-weight: 600 !important; box-shadow: 0 0 22px rgba(138,43,226,0.28); transition: all 0.22s ease !important; }
+    .nav-cta { background: var(--violet) !important; color: white !important; padding: 10px 20px; border-radius: 999px; font-weight: 600 !important; box-shadow: 0 0 22px rgba(138,43,226,0.28); transition: all 0.22s ease !important; font-size: 13px !important; }
     .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 0 36px rgba(138,43,226,0.45); }
     .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
     .mobile-menu-btn span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; transition: all 0.3s; }
@@ -76,9 +85,9 @@
 
     .btn-primary { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: .5rem; background: var(--violet); color: white; padding: 16px 36px; border-radius: 999px; font-size: 16px; font-weight: 700; text-decoration: none; border: none; cursor: pointer; font-family: 'Inter', sans-serif; box-shadow: 0 0 22px rgba(138,43,226,0.28); transition: all 0.22s ease; overflow: hidden; }
     .btn-primary::after { content: ''; position: absolute; inset: -40%; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.18), transparent 45%); transform: translateX(-18%); opacity: 0.6; pointer-events: none; }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 42px rgba(138,43,226,0.42); filter: saturate(1.08); }
+    .btn-primary:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 0 50px rgba(138,43,226,0.45); filter: saturate(1.08); }
     .btn-secondary { background: transparent; color: var(--text); padding: 16px 36px; border-radius: 999px; font-size: 16px; font-weight: 600; text-decoration: none; border: 1px solid var(--glass-border-strong); transition: all 0.3s; backdrop-filter: blur(8px); }
-    .btn-secondary:hover { border-color: var(--violet); color: var(--white); box-shadow: 0 0 20px rgba(138,43,226,0.15); }
+    .btn-secondary:hover { border-color: var(--violet); color: var(--white); box-shadow: 0 0 20px rgba(138,43,226,0.15); transform: translateY(-1px) scale(1.03); }
 
     section { padding: 120px 24px; position: relative; z-index: 1; }
     .container { max-width: 1200px; margin: 0 auto; }
@@ -223,10 +232,21 @@
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .form-submit { width: 100%; margin-top: 8px; }
 
-    footer { padding: 48px 24px; text-align: center; border-top: 1px solid var(--glass-border); position: relative; z-index: 1; }
+    /* SECTION SUBTITLES */
+    .section-subtitle { font-family: 'Playfair Display', Georgia, serif; font-style: italic; color: rgba(255,255,255,0.25); font-size: clamp(20px, 2.5vw, 28px); margin-top: -8px; margin-bottom: 16px; }
+
+    /* MANIFESTO */
+    .manifesto { padding: 140px 24px; position: relative; z-index: 1; overflow: hidden; background: linear-gradient(180deg, rgba(3,1,10,1) 0%, rgba(17,8,38,0.95) 50%, rgba(3,1,10,1) 100%); }
+    .manifesto-bg { position: absolute; inset: 0; opacity: 0.04; background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=60'); background-size: cover; background-position: center; }
+    .manifesto-small { font-size: clamp(16px, 2vw, 20px); color: rgba(255,255,255,0.35); font-weight: 300; margin-bottom: 32px; text-align: center; }
+    .manifesto-small span { color: rgba(255,255,255,0.55); }
+    .manifesto-big { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: clamp(32px, 5vw, 64px); line-height: 1.15; text-align: center; margin-bottom: 32px; color: var(--white); }
+
+    /* UPGRADED FOOTER */
+    footer { padding: 64px 24px 40px; text-align: center; position: relative; z-index: 1; border-radius: 64px 64px 0 0; background: rgba(3,1,10,0.95); margin-top: 32px; }
     .footer-logo { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 800; color: var(--white); margin-bottom: 8px; }
     .footer-logo span { color: var(--violet-light); }
-    .footer-tagline { color: var(--text-dim); font-size: 14px; font-style: italic; margin-bottom: 16px; }
+    .footer-tagline { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 20px; margin-bottom: 24px; background: linear-gradient(135deg, #ffffff 0%, rgba(167,139,250,0.95) 35%, rgba(138,43,226,0.95) 80%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
     .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 24px; }
     .footer-links a { color: var(--text-dim); text-decoration: none; font-size: 14px; transition: color 0.2s; }
     .footer-links a:hover { color: var(--violet-light); }
@@ -234,8 +254,7 @@
 
     @keyframes fadeInUp { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes fadeInDown { from { opacity: 0; transform: translateY(-14px); } to { opacity: 1; transform: translateY(0); } }
-    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .85s ease, transform .85s ease; will-change: opacity, transform; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal { opacity: 0; transform: translateY(40px); will-change: opacity, transform; }
 
     @media (max-width: 900px) {
       .pricing-grid { grid-template-columns: 1fr; max-width: 420px; }
@@ -243,28 +262,38 @@
       .pricing-card.featured:hover { transform: translateY(-6px); }
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
     }
-    @media (max-width: 768px) {
+    @media (max-width: 820px) {
+      nav { top: 8px; width: 96%; border-radius: 999px; }
+      nav.scrolled { border-radius: 999px; }
       .nav-links { display: none; }
       .mobile-menu-btn { display: block; }
-      .nav-links.active { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(5, 2, 20, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 24px; border-bottom: 1px solid var(--glass-border); gap: 16px; }
+      .nav-links.active { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(5, 2, 20, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 24px; border-bottom: 1px solid var(--glass-border); gap: 16px; border-radius: 0 0 24px 24px; }
+      .manifesto { padding: 100px 24px; }
+      .manifesto-big { font-size: clamp(28px, 6vw, 48px); }
+      .hero h1 { font-size: clamp(32px, 6vw, 52px); }
+      .hero-sub { font-size: 16px; }
+      section { padding: 80px 24px; }
+      .section-title { font-size: clamp(28px, 5vw, 40px); }
+      .section-sub { font-size: 15px; }
+      .process-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .process-card { padding: 24px 20px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
       .hero { min-height: auto; padding: 140px 24px 80px; }
       .hero-video-wrapper video { display: none; }
       .hero-video-wrapper { background: radial-gradient(ellipse at 30% 20%,rgba(138,43,226,0.25),transparent 50%),radial-gradient(ellipse at 70% 60%,rgba(45,107,255,0.15),transparent 50%),radial-gradient(ellipse at 50% 80%,rgba(215,177,90,0.08),transparent 40%),linear-gradient(180deg,#050214 0%,#0a0520 40%,#080318 70%,#050214 100%); }
       .hero-proof { gap: 28px; }
       .proof-item .number { font-size: 28px; }
-      section { padding: 80px 24px; }
       .portfolio-visual { height: 280px; }
       .pv-title { font-size: 24px; }
       .pv-stats { gap: 20px; }
       .pv-stat-num { font-size: 16px; }
-      .form-row { grid-template-columns: 1fr; }
       .hero h1 { font-size: clamp(28px, 7vw, 42px); }
       .hero-sub { font-size: 15px; }
       .hero-actions { flex-direction: column; gap: 12px; align-items: center; }
       .hero-actions .btn-secondary { margin-left: 0; }
       .btn-primary, .btn-secondary { min-height: 48px; display: flex; align-items: center; justify-content: center; width: 100%; max-width: 280px; }
-      .process-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
-      .process-card { padding: 24px 20px; }
       .pricing-card { padding: 32px 24px; }
       .pricing-price { font-size: 38px; }
       .faq-question { font-size: 15px; padding: 20px 0; }
@@ -272,7 +301,6 @@
       .contact-sub { font-size: 15px; }
       .glass-card.reveal { padding: 28px 20px; }
       .section-title { font-size: clamp(24px, 5vw, 36px); }
-      .section-sub { font-size: 15px; }
     }
     @media (max-width: 480px) {
       .hero { padding: 120px 16px 60px; }
@@ -285,6 +313,7 @@
   </style>
 </head>
 <body>
+<div class="noise-overlay" aria-hidden="true"></div>
 <div id="particles"></div>
 <nav><div class="nav-inner"><a href="#" class="nav-logo"><div class="nav-logo-icon">V</div><div class="nav-logo-text"><span>Violet</span> Web</div></a><ul class="nav-links" id="navLinks"><li><a href="#portfolio">Portfolio</a></li><li><a href="#process">Process</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contact" class="nav-cta">Start a Project</a></li></ul><button class="mobile-menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
 
@@ -295,7 +324,7 @@
   </div>
   <div class="hero-content">
     <div class="hero-badge">&#10022; Powered by Violet Media</div>
-    <h1>Websites that make your business <span class="cosmic-text">unforgettable</span></h1>
+    <h1>Websites that make your business <span class="font-drama" style="font-style:italic;"><span class="cosmic-text">unforgettable</span></span></h1>
     <p class="hero-sub">Cinematic, mobile-responsive websites for businesses and creators worldwide. AI-powered design. You own your domain &#8212; we handle the rest.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Start Your Project</a>
@@ -314,6 +343,7 @@
 <section id="portfolio"><div class="container">
   <div class="section-label reveal">Our Work</div>
   <h2 class="section-title reveal">Built to impress. <span class="cosmic-text">Engineered to convert.</span></h2>
+  <div class="section-subtitle reveal">real work, not templates</div>
   <p class="section-sub reveal">Every website we deliver is production-grade, mobile-responsive, and fully owned by you.</p>
   <div class="portfolio-showcase">
     <div class="portfolio-card glass-card reveal">
@@ -358,11 +388,25 @@
   </div>
 </div></section>
 
+<!-- MANIFESTO — Web Design Positioning -->
+<section class="manifesto">
+  <div class="manifesto-bg" aria-hidden="true"></div>
+  <div class="container" style="max-width:900px; position:relative; z-index:2;">
+    <p class="manifesto-small manifesto-line">Most web design agencies deliver: <span>templates with your logo slapped on.</span></p>
+    <h2 class="manifesto-big manifesto-line">We deliver: <br><span class="cosmic-text">cinematic experiences.</span></h2>
+    <p class="manifesto-small manifesto-line">Most freelancers charge you monthly to: <span>hold your website hostage.</span></p>
+    <h2 class="manifesto-big manifesto-line">We hand you: <br><span class="gold-text">everything you own.</span></h2>
+    <div style="width:64px;height:1px;background:linear-gradient(90deg,transparent,rgba(138,43,226,0.4),transparent);margin:48px auto 32px;"></div>
+    <p class="manifesto-small manifesto-line" style="max-width:500px;margin-left:auto;margin-right:auto;">Your domain. Your code. Your brand. No lock-in. Ever.<br><span class="font-drama" style="font-style:italic;color:rgba(255,255,255,0.55);">Quality is for the ages.</span></p>
+  </div>
+</section>
+
 <div class="section-divider"></div>
 
 <section id="process"><div class="container">
   <div class="section-label reveal">How It Works</div>
   <h2 class="section-title reveal">From brief to launch in <span class="cosmic-text">4 steps</span></h2>
+  <div class="section-subtitle reveal">precision, not guesswork</div>
   <p class="section-sub reveal">A simple, transparent process. No surprises, no hidden fees.</p>
   <div class="process-grid">
     <div class="process-card glass-card reveal"><div class="process-number cosmic-text">01</div><h3>Discovery</h3><p>We discuss your vision, audience, and goals. You tell us what your business needs &#8212; we translate that into a design brief.</p></div>
@@ -377,6 +421,7 @@
 <section id="pricing"><div class="container">
   <div class="section-label reveal">Pricing</div>
   <h2 class="section-title reveal">Transparent pricing. <span class="cosmic-text">No hidden fees.</span></h2>
+  <div class="section-subtitle reveal">you see what you pay for</div>
   <p class="section-sub reveal">All prices in Australian Dollars. Your domain, your brand &#8212; we build and host it for you.</p>
   <div class="pricing-grid">
     <div class="pricing-card glass-card reveal">
@@ -412,6 +457,7 @@
 <section id="faq"><div class="container">
   <div class="section-label reveal">FAQ</div>
   <h2 class="section-title reveal">Common questions</h2>
+  <div class="section-subtitle reveal">the details that matter</div>
   <p class="section-sub reveal">Everything you need to know before starting a project.</p>
   <div class="faq-list">
     <div class="faq-item reveal"><button class="faq-question">Do I own my website after it's built? <span class="faq-icon">+</span></button><div class="faq-answer"><p>Yes &#8212; you own your domain and have full rights to your website. We host and maintain your site on our professional infrastructure so you never have to deal with the technical side. If you ever want full control, we transfer all files, source code, and hosting to you &#8212; no questions asked. There is no vendor lock-in.</p></div></div>
@@ -459,23 +505,88 @@
 </div></section>
 
 <footer>
-  <div class="footer-logo"><span>Violet</span> Media</div>
+  <!-- System Status Indicator -->
+  <div style="display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border-radius:999px;border:1px solid rgba(255,255,255,0.05);background:rgba(17,8,38,0.4);margin-bottom:24px;">
+    <span style="width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 8px rgba(74,222,128,0.5);animation:pulse 2s ease infinite;"></span>
+    <span style="font-family:monospace;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);">All Systems Operational</span>
+  </div>
+  <style>@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.5;}}</style>
+  <!-- Footer Nav Grid -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:500px;margin:0 auto 32px;text-align:center;font-size:14px;">
+    <div>
+      <div style="color:rgba(255,255,255,0.25);font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">Services</div>
+      <a href="#pricing" style="display:block;color:rgba(255,255,255,0.45);text-decoration:none;margin-bottom:6px;transition:color 0.2s;">Starter</a>
+      <a href="#pricing" style="display:block;color:rgba(255,255,255,0.45);text-decoration:none;margin-bottom:6px;transition:color 0.2s;">Standard</a>
+      <a href="#pricing" style="display:block;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;">Premium</a>
+    </div>
+    <div>
+      <div style="color:rgba(255,255,255,0.25);font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">Company</div>
+      <a href="https://violetmedia.org" target="_blank" style="display:block;color:rgba(255,255,255,0.45);text-decoration:none;margin-bottom:6px;transition:color 0.2s;">violetmedia.org</a>
+      <a href="#portfolio" style="display:block;color:rgba(255,255,255,0.45);text-decoration:none;margin-bottom:6px;transition:color 0.2s;">Portfolio</a>
+      <a href="#contact" style="display:block;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;">Contact</a>
+    </div>
+    <div>
+      <div style="color:rgba(255,255,255,0.25);font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">Follow</div>
+      <a href="https://www.tiktok.com/@cosmictease" target="_blank" style="display:block;color:rgba(255,255,255,0.45);text-decoration:none;margin-bottom:6px;transition:color 0.2s;">TikTok</a>
+      <a href="https://youtube.com/@cosmic_tease" target="_blank" style="display:block;color:rgba(255,255,255,0.45);text-decoration:none;margin-bottom:6px;transition:color 0.2s;">YouTube</a>
+      <a href="https://linkedin.com/in/petersarosi" target="_blank" style="display:block;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;">LinkedIn</a>
+    </div>
+  </div>
+  <div style="width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.08),transparent);margin-bottom:24px;"></div>
+  <div class="footer-logo"><span>Violet</span> Web</div>
   <div class="footer-tagline">Quality is for the ages.</div>
-  <div class="footer-links"><a href="https://violetmedia.org" target="_blank">violetmedia.org</a><a href="https://www.tiktok.com/@cosmictease" target="_blank">TikTok</a><a href="https://youtube.com/@cosmic_tease" target="_blank">YouTube</a><a href="https://linkedin.com/in/petersarosi" target="_blank">LinkedIn</a></div>
   <div class="footer-copy">&copy; 2026 Violet Media Productions. ABN 20 188 436 344. Perth, Western Australia.</div>
 </footer>
 
 <script>
 (function(){
+  // Particles
   var c=document.getElementById('particles'),n=window.innerWidth<768?50:90;
   var cols=['rgba(255,255,255,','rgba(138,43,226,','rgba(45,107,255,','rgba(168,85,247,'];
   for(var i=0;i<n;i++){var p=document.createElement('div');p.className='particle';var s=Math.random()*2.5+0.5,co=cols[Math.floor(Math.random()*cols.length)],o=Math.random()*0.5+0.2,d=Math.random()*40+25,dl=Math.random()*d,l=Math.random()*100,t=Math.random()*100;p.style.cssText='width:'+s+'px;height:'+s+'px;background:'+co+o+');left:'+l+'%;top:'+t+'%;animation-duration:'+d+'s;animation-delay:-'+dl+'s;box-shadow:0 0 '+s*3+'px '+co+o*0.5+');';c.appendChild(p);}
+
+  // Mobile menu
+  document.getElementById('menuBtn').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('active');});
+  document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('navLinks').classList.remove('active');});});
+
+  // FAQ
+  document.querySelectorAll('.faq-question').forEach(function(b){b.addEventListener('click',function(){var item=b.parentElement,was=item.classList.contains('active');document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('active');});if(!was)item.classList.add('active');});});
+
+  // Morphing Navbar
+  var navEl = document.querySelector('nav');
+  var heroEl = document.querySelector('.hero');
+  if (navEl && heroEl) {
+    var navObs = new IntersectionObserver(function(entries) {
+      navEl.classList.toggle('scrolled', !entries[0].isIntersecting);
+    }, { threshold: 0.15 });
+    navObs.observe(heroEl);
+  }
+
+  // GSAP ScrollTrigger Reveals
+  if (typeof gsap !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      gsap.fromTo(el,
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
+        }
+      );
+    });
+    // Manifesto lines
+    document.querySelectorAll('.manifesto-line').forEach(function(el) {
+      gsap.fromTo(el,
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 1.1, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+        }
+      );
+    });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el) { el.style.opacity = '1'; el.style.transform = 'none'; });
+    document.querySelectorAll('.manifesto-line').forEach(function(el) { el.style.opacity = '1'; el.style.transform = 'none'; });
+  }
 })();
-document.getElementById('menuBtn').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('active');});
-document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('navLinks').classList.remove('active');});});
-document.querySelectorAll('.faq-question').forEach(function(b){b.addEventListener('click',function(){var item=b.parentElement,was=item.classList.contains('active');document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('active');});if(!was)item.classList.add('active');});});
-var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
 </script>
 </body>
 </html>
