@@ -8,6 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{--noir:#0A0A0A;--gold:#C9A84C;--gold-light:#D4B85A;--warm-white:#F5F0E8;--charcoal:#1C1C1C;--glass-bg:rgba(28,28,28,0.45);--glass-border:rgba(201,168,76,0.15)}
@@ -55,7 +57,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--noir);color:var(--warm-wh
 .hero-subtitle{font-size:clamp(1rem,1.8vw,1.2rem);color:rgba(245,240,232,0.55);max-width:560px;margin:0 auto 48px;font-weight:300}
 .hero-cta{display:inline-block;padding:16px 52px;border:1px solid var(--gold);color:var(--gold);text-decoration:none;font-size:.8rem;letter-spacing:3px;text-transform:uppercase;font-weight:500;transition:all .5s ease;position:relative;overflow:hidden}
 .hero-cta::before{content:'';position:absolute;inset:0;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .5s ease;z-index:-1}
-.hero-cta:hover{color:var(--noir)}.hero-cta:hover::before{transform:scaleX(1)}
+.hero-cta:hover{color:var(--noir);transform:scale(1.02)}.hero-cta:hover::before{transform:scaleX(1)}
 .scroll-indicator{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(245,240,232,0.3);font-size:.7rem;letter-spacing:3px;text-transform:uppercase}
 .scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollPulse 2s ease-in-out infinite}
 @keyframes scrollPulse{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
@@ -175,7 +177,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--noir);color:var(--warm-wh
 .form-row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
 .form-submit{width:100%;padding:18px 52px;background:transparent;border:1px solid var(--gold);color:var(--gold);font-family:'DM Sans',sans-serif;font-size:.82rem;letter-spacing:3px;text-transform:uppercase;cursor:pointer;font-weight:500;transition:all .5s ease;position:relative;overflow:hidden;margin-top:8px}
 .form-submit::before{content:'';position:absolute;inset:0;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .5s ease;z-index:-1}
-.form-submit:hover{color:var(--noir)}.form-submit:hover::before{transform:scaleX(1)}
+.form-submit:hover{color:var(--noir);transform:scale(1.02)}.form-submit:hover::before{transform:scaleX(1)}
 
 /* DARK MAP */
 .contact-map{margin-top:0;border:1px solid rgba(201,168,76,0.1);overflow:hidden;position:relative}
@@ -191,9 +193,23 @@ body{font-family:'DM Sans',sans-serif;background:var(--noir);color:var(--warm-wh
 .footer-nav a:hover{color:var(--gold)}
 .footer-copy{font-size:.8rem;color:rgba(245,240,232,0.3)}
 
+/* NOISE OVERLAY */
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");mix-blend-mode:overlay}
+
+/* MANIFESTO */
+.manifesto-section{padding:120px 24px;text-align:center;position:relative;z-index:1;background:linear-gradient(180deg,var(--noir) 0%,var(--charcoal) 50%,var(--noir) 100%)}
+.manifesto-small{font-size:clamp(14px,1.6vw,18px);color:rgba(245,240,232,0.35);margin-bottom:20px}
+.manifesto-small span{color:rgba(245,240,232,0.55)}
+.manifesto-big{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(28px,5vw,56px);color:var(--warm-white);margin-bottom:20px;line-height:1.2}
+.manifesto-big em{color:var(--gold);font-style:italic}
+
+/* UPGRADED FOOTER */
+.footer{border-radius:48px 48px 0 0;background:rgba(10,10,10,0.95);margin-top:24px}
+.footer-tagline{font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;color:var(--gold);opacity:0.6;margin-bottom:16px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+
 /* REVEALS */
-.reveal{opacity:0;transform:translateY(40px);transition:opacity .85s ease,transform .85s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal{opacity:0;transform:translateY(40px)}
 .reveal-delay-1{transition-delay:.12s}.reveal-delay-2{transition-delay:.24s}.reveal-delay-3{transition-delay:.36s}.reveal-delay-4{transition-delay:.48s}.reveal-delay-5{transition-delay:.6s}
 
 /* RESPONSIVE */
@@ -206,6 +222,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--noir);color:var(--warm-wh
   .journal-grid{grid-template-columns:1fr;max-width:600px}
 }
 @media(max-width:768px){
+  .manifesto-section{padding:80px 24px}
+  .manifesto-big{font-size:clamp(24px,5vw,36px)}
   .section{padding:64px 24px}.nav{padding:14px 24px}
   .nav-links{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(10,10,10,0.97);flex-direction:column;align-items:center;justify-content:center;gap:32px}
   .nav-links.open{display:flex}.nav-toggle{display:flex;z-index:1001}
@@ -326,6 +344,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--noir);color:var(--warm-wh
       <div class="parallax-stat reveal reveal-delay-2"><div class="number">15</div><div class="label">Design Awards</div></div>
       <div class="parallax-stat reveal reveal-delay-3"><div class="number">6</div><div class="label">Countries Served</div></div>
     </div>
+  </div>
+</div>
+
+<!-- MANIFESTO -->
+<div class="manifesto-section">
+  <div style="max-width:800px;margin:0 auto;">
+    <p class="manifesto-small">Most designers <span>fill spaces with furniture.</span></p>
+    <h2 class="manifesto-big">We compose environments<br>that <em>breathe.</em></h2>
+    <div style="width:60px;height:1px;background:var(--gold);margin:32px auto;opacity:0.4;"></div>
+    <p class="manifesto-small">Every material, every shadow, every silence &mdash; <span>intentional.</span></p>
   </div>
 </div>
 
@@ -497,8 +525,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--noir);color:var(--warm-wh
 </div>
 
 <!-- FOOTER -->
-<footer class="footer">
+<footer class="footer" style="flex-direction:column;gap:16px;">
+  <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:999px;border:1px solid rgba(245,240,232,0.05);background:rgba(28,28,28,0.4);">
+    <span style="width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 6px rgba(74,222,128,0.5);animation:pulse 2s ease infinite;"></span>
+    <span style="font-family:monospace;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,0.25);">All Systems Operational</span>
+  </div>
   <div class="footer-logo">Noir<span>&amp;</span>Co.</div>
+  <div class="footer-tagline">True luxury is invisible.</div>
   <div class="footer-nav">
     <a href="#" data-page="home">Home</a>
     <a href="#" data-page="process">Process</a>
@@ -530,7 +563,7 @@ document.querySelectorAll('[data-page]').forEach(function(link){
       window.scrollTo({top:0,behavior:'smooth'});
       document.querySelectorAll('.nav-links a').forEach(function(a){a.classList.remove('active')});
       document.querySelectorAll('[data-page="'+pageId+'"]').forEach(function(a){if(a.closest('.nav-links'))a.classList.add('active')});
-      setTimeout(function(){document.querySelectorAll('.page.active-page .reveal:not(.visible)').forEach(function(el){observer.observe(el)})},100);
+      setTimeout(function(){if(typeof ScrollTrigger!=='undefined'){ScrollTrigger.refresh();}},100);
     }
     document.getElementById('navLinks').classList.remove('open');
   });
@@ -550,9 +583,26 @@ document.querySelectorAll('.nav-links a[href^="#"]').forEach(function(link){
   });
 });
 
-// Scroll reveal
-var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(function(el){observer.observe(el)});
+// GSAP ScrollTrigger Reveals
+if(typeof gsap!=='undefined'){
+  gsap.registerPlugin(ScrollTrigger);
+  document.querySelectorAll('.reveal').forEach(function(el,i){
+    var delay=0;
+    if(el.classList.contains('reveal-delay-1'))delay=0.12;
+    else if(el.classList.contains('reveal-delay-2'))delay=0.24;
+    else if(el.classList.contains('reveal-delay-3'))delay=0.36;
+    else if(el.classList.contains('reveal-delay-4'))delay=0.48;
+    else if(el.classList.contains('reveal-delay-5'))delay=0.6;
+    gsap.fromTo(el,
+      {opacity:0,y:40},
+      {opacity:1,y:0,duration:0.9,delay:delay,ease:'power3.out',
+        scrollTrigger:{trigger:el,start:'top 88%',toggleActions:'play none none none'}
+      }
+    );
+  });
+}else{
+  document.querySelectorAll('.reveal').forEach(function(el){el.style.opacity='1';el.style.transform='none';});
+}
 
 // 3D Form Card Tilt
 var isMobile=window.matchMedia("(max-width:768px)").matches||"ontouchstart" in window;var formCard=document.getElementById('form3dCard'),formGlow=document.getElementById('formGlow');
