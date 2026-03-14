@@ -220,9 +220,46 @@ body{font-family:'DM Sans',sans-serif;background:var(--noir);color:var(--warm-wh
   .parallax-stat-row{gap:40px}
   .parallax-break{background-attachment:scroll}
   .hero-video-bg video{display:none}
-  .hero-video-bg{background:linear-gradient(135deg,#0A0A0A 0%,#141010 25%,#0f0d18 50%,#1a150e 75%,#0A0A0A 100%);background-size:400% 400%;animation:ambientGlow 18s ease infinite}
-  @keyframes ambientGlow{0%{background-position:0% 50%}25%{background-position:100% 0%}50%{background-position:100% 100%}75%{background-position:0% 100%}100%{background-position:0% 50%}}
+  .hero-video-bg{background:url("images/premium/parallax.jpeg") center/cover no-repeat;position:relative}.hero-video-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,0.5) 0%,rgba(10,10,10,0.3) 40%,rgba(10,10,10,0.6) 70%,rgba(10,10,10,0.9) 100%)}
   .process-step{gap:24px}.process-timeline::before{left:24px}
+  .hero{min-height:85vh}
+  .hero-tagline{font-size:.7rem;letter-spacing:4px}
+  .hero-cta{padding:14px 36px;font-size:.75rem}
+  .scroll-indicator{display:none}
+  .glass-card{padding:32px 24px}
+  .card-title{font-size:1.2rem}
+  .portfolio-grid{grid-auto-rows:200px}
+  .portfolio-grid .item:nth-child(5){height:180px}
+  .form-3d-card{padding:28px 20px}
+  .form-3d-card,.form-3d-card:hover{transform:none!important}
+  .form-3d-glow{display:none}
+  .contact-map iframe{height:220px}
+  .journal-card .journal-img{height:180px}
+  .demo-banner{font-size:11px;padding:8px 12px}
+}
+@media(max-width:480px){
+  .section{padding:48px 16px}
+  .hero{min-height:75vh}
+  .hero-title{font-size:2.2rem}
+  .hero-subtitle{font-size:.9rem}
+  .hero-cta{padding:12px 28px}
+  .about-grid{gap:32px}
+  .about-quote{font-size:1.15rem}
+  .parallax-stat-row{flex-direction:column;gap:24px}
+  .parallax-stat .number{font-size:2rem}
+  .portfolio-grid{grid-template-columns:1fr;grid-auto-rows:200px}
+  .portfolio-grid .item:nth-child(1){grid-row:span 1}
+  .portfolio-grid .item:nth-child(4){grid-column:span 1}
+  .portfolio-grid .item:nth-child(5){grid-column:span 1;height:200px}
+  .process-dot{width:36px;min-width:36px;height:36px;font-size:.9rem}
+  .process-step-content h3{font-size:1.2rem}
+  .journal-card .journal-img{height:160px}
+  .journal-body{padding:20px}
+  .journal-body h3{font-size:1.1rem}
+  .testimonial-card{padding:28px 20px}
+  .contact-map iframe{height:180px}
+  .demo-banner{font-size:10px;padding:6px 10px}
+  .nav{top:30px;padding:12px 16px}
 }
 </style>
 </head>
@@ -518,8 +555,8 @@ var observer=new IntersectionObserver(function(entries){entries.forEach(function
 document.querySelectorAll('.reveal').forEach(function(el){observer.observe(el)});
 
 // 3D Form Card Tilt
-var formCard=document.getElementById('form3dCard'),formGlow=document.getElementById('formGlow');
-if(formCard){
+var isMobile=window.matchMedia("(max-width:768px)").matches||"ontouchstart" in window;var formCard=document.getElementById('form3dCard'),formGlow=document.getElementById('formGlow');
+if(formCard&&!isMobile){
   formCard.addEventListener('mousemove',function(e){
     var rect=formCard.getBoundingClientRect();
     var x=(e.clientX-rect.left)/rect.width;
@@ -539,7 +576,7 @@ if(formCard){
 
 // Parallax on scroll
 var parallaxBg=document.getElementById('parallaxBg');
-if(parallaxBg){window.addEventListener('scroll',function(){var rect=parallaxBg.parentElement.getBoundingClientRect();if(rect.top<window.innerHeight&&rect.bottom>0){var pct=(window.innerHeight-rect.top)/(window.innerHeight+rect.height);parallaxBg.style.transform='translateY('+(pct*60-30)+'px)'}},{passive:true})}
+if(parallaxBg&&!isMobile){window.addEventListener('scroll',function(){var rect=parallaxBg.parentElement.getBoundingClientRect();if(rect.top<window.innerHeight&&rect.bottom>0){var pct=(window.innerHeight-rect.top)/(window.innerHeight+rect.height);parallaxBg.style.transform='translateY('+(pct*60-30)+'px)'}},{passive:true})}
 </script>
 </body>
 </html>

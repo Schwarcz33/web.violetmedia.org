@@ -249,7 +249,7 @@
       .nav-links.active { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(5, 2, 20, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 24px; border-bottom: 1px solid var(--glass-border); gap: 16px; }
       .hero { min-height: auto; padding: 140px 24px 80px; }
       .hero-video-wrapper video { display: none; }
-      .hero-video-wrapper { background: radial-gradient(ellipse at 50% 30%, rgba(138,43,226,0.18), transparent 70%); }
+      .hero-video-wrapper { background: radial-gradient(ellipse at 30% 20%,rgba(138,43,226,0.25),transparent 50%),radial-gradient(ellipse at 70% 60%,rgba(45,107,255,0.15),transparent 50%),radial-gradient(ellipse at 50% 80%,rgba(215,177,90,0.08),transparent 40%),linear-gradient(180deg,#050214 0%,#0a0520 40%,#080318 70%,#050214 100%); }
       .hero-proof { gap: 28px; }
       .proof-item .number { font-size: 28px; }
       section { padding: 80px 24px; }
@@ -258,6 +258,29 @@
       .pv-stats { gap: 20px; }
       .pv-stat-num { font-size: 16px; }
       .form-row { grid-template-columns: 1fr; }
+      .hero h1 { font-size: clamp(28px, 7vw, 42px); }
+      .hero-sub { font-size: 15px; }
+      .hero-actions { flex-direction: column; gap: 12px; align-items: center; }
+      .hero-actions .btn-secondary { margin-left: 0; }
+      .btn-primary, .btn-secondary { min-height: 48px; display: flex; align-items: center; justify-content: center; width: 100%; max-width: 280px; }
+      .process-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .process-card { padding: 24px 20px; }
+      .pricing-card { padding: 32px 24px; }
+      .pricing-price { font-size: 38px; }
+      .faq-question { font-size: 15px; padding: 20px 0; }
+      .contact-left h2 { font-size: 28px; }
+      .contact-sub { font-size: 15px; }
+      .glass-card.reveal { padding: 28px 20px; }
+      .section-title { font-size: clamp(24px, 5vw, 36px); }
+      .section-sub { font-size: 15px; }
+    }
+    @media (max-width: 480px) {
+      .hero { padding: 120px 16px 60px; }
+      section { padding: 60px 16px; }
+      .process-grid { grid-template-columns: 1fr; }
+      .hero-proof { flex-direction: column; gap: 16px; align-items: center; }
+      .pricing-features li { font-size: 14px; }
+      .nav-inner { padding: 0 16px; }
     }
   </style>
 </head>
