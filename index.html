@@ -25,40 +25,19 @@
       --shadow-soft: 0 18px 60px rgba(0,0,0,0.45);
       --shadow-glow: 0 0 44px rgba(138, 43, 226, 0.22);
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-
     body {
-      font-family: 'Inter', sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(1200px 900px at 18% 12%, rgba(138,43,226,0.16), transparent 55%),
-        radial-gradient(1000px 800px at 82% 18%, rgba(45,107,255,0.10), transparent 55%),
-        radial-gradient(900px 700px at 50% 92%, rgba(215,177,90,0.06), transparent 60%),
-        linear-gradient(180deg, var(--ink) 0%, #03010A 100%);
-      background-attachment: fixed;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
+      font-family: 'Inter', sans-serif; color: var(--text);
+      background: radial-gradient(1200px 900px at 18% 12%, rgba(138,43,226,0.16), transparent 55%), radial-gradient(1000px 800px at 82% 18%, rgba(45,107,255,0.10), transparent 55%), radial-gradient(900px 700px at 50% 92%, rgba(215,177,90,0.06), transparent 60%), linear-gradient(180deg, var(--ink) 0%, #03010A 100%);
+      background-attachment: fixed; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden;
     }
-
     #particles { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
     .particle { position: absolute; border-radius: 50%; animation: drift linear infinite; }
-    @keyframes drift {
-      0% { transform: translateY(0) translateX(0); opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { transform: translateY(-110vh) translateX(40px); opacity: 0; }
-    }
+    @keyframes drift { 0% { transform: translateY(0) translateX(0); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(-110vh) translateX(40px); opacity: 0; } }
 
-    nav {
-      position: fixed; top: 0; width: 100%; z-index: 100;
-      background: rgba(5, 2, 20, 0.75);
-      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--glass-border);
-      transition: all 0.3s ease;
-    }
+    /* NAV */
+    nav { position: fixed; top: 0; width: 100%; z-index: 100; background: rgba(5,2,20,0.75); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border); transition: all 0.3s ease; }
     .nav-inner { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
     .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
     .nav-logo-icon { width: 36px; height: 36px; background: var(--violet); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-family: 'Space Grotesk', sans-serif; font-weight: 800; font-size: 18px; box-shadow: 0 0 16px rgba(138,43,226,0.4); }
@@ -75,61 +54,31 @@
     .cosmic-text { background: linear-gradient(135deg, #ffffff 0%, rgba(167,139,250,0.95) 35%, rgba(138,43,226,0.95) 80%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
     .gold-text { background: linear-gradient(135deg, var(--gold) 0%, #E8C66A 50%, var(--gold) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 
-    .glass-card {
-      background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 16px;
-      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
-      transition: transform .35s cubic-bezier(.2,.9,.2,1), box-shadow .35s ease, border-color .35s ease;
-      position: relative;
-    }
+    .glass-card { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 16px; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow: 0 8px 32px rgba(0,0,0,0.35); transition: transform .35s cubic-bezier(.2,.9,.2,1), box-shadow .35s ease, border-color .35s ease; position: relative; }
     .glass-card::before { content: ''; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(138,43,226,0.04)); pointer-events: none; opacity: 0; transition: opacity .35s ease; }
     .glass-card:hover { transform: translateY(-6px); border-color: rgba(138,43,226,0.30); box-shadow: var(--shadow-soft), var(--shadow-glow); }
     .glass-card:hover::before { opacity: 1; }
 
-    /* --- Hero Video Background --- */
-    .hero-video-wrapper {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      overflow: hidden; z-index: 0;
-    }
-    .hero-video-wrapper video {
-      position: absolute; top: 50%; left: 50%;
-      min-width: 100%; min-height: 100%;
-      width: auto; height: auto;
-      transform: translate(-50%, -50%);
-      object-fit: cover;
-    }
-    .hero-video-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(180deg, 
-        rgba(5,2,20,0.75) 0%, 
-        rgba(5,2,20,0.55) 40%, 
-        rgba(5,2,20,0.70) 70%, 
-        rgba(5,2,20,0.95) 100%
-      );
-      z-index: 1;
-    }
-    @media (max-width: 768px) {
-      .hero-video-wrapper video { display: none; }
-      .hero-video-wrapper { background: radial-gradient(ellipse at 50% 30%, rgba(138,43,226,0.15), transparent 70%); }
-    }
-
-    .hero { padding: 180px 24px 120px; text-align: center; position: relative; z-index: 1; overflow: hidden; }
-    .hero-badge { position: relative; z-index: 2; display: inline-flex; align-items: center; gap: 8px; background: rgba(138,43,226,0.15); border: 1px solid rgba(138,43,226,0.3); color: var(--violet-light); padding: 8px 20px; border-radius: 100px; font-size: 14px; font-weight: 600; margin-bottom: 32px; animation: fadeInDown 0.8s ease; backdrop-filter: blur(8px); }
-    .hero h1 { position: relative; z-index: 2; font-family: 'Space Grotesk', sans-serif; font-size: clamp(42px, 6vw, 76px); line-height: 1.08; font-weight: 800; color: var(--white); max-width: 850px; margin: 0 auto 24px; animation: fadeInUp 0.8s ease 0.1s both; letter-spacing: -1px; }
-    .hero-sub { position: relative; z-index: 2; font-size: clamp(17px, 2.2vw, 20px); color: var(--text-dim); max-width: 620px; margin: 0 auto 48px; animation: fadeInUp 0.8s ease 0.2s both; font-weight: 400; line-height: 1.8; }
-    .hero-actions { position: relative; z-index: 2; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; animation: fadeInUp 0.8s ease 0.3s both; }
+    /* HERO - Full screen with video */
+    .hero { position: relative; z-index: 1; overflow: hidden; padding: 180px 24px 120px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .hero-video-wrapper { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
+    .hero-video-wrapper video { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; transform: translate(-50%, -50%); object-fit: cover; }
+    .hero-video-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5,2,20,0.55) 0%, rgba(5,2,20,0.30) 30%, rgba(5,2,20,0.30) 60%, rgba(5,2,20,0.88) 100%); z-index: 1; }
+    .hero-content { position: relative; z-index: 2; max-width: 850px; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(138,43,226,0.15); border: 1px solid rgba(138,43,226,0.3); color: var(--violet-light); padding: 8px 20px; border-radius: 100px; font-size: 14px; font-weight: 600; margin-bottom: 32px; animation: fadeInDown 0.8s ease; backdrop-filter: blur(8px); }
+    .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(42px, 6vw, 76px); line-height: 1.08; font-weight: 800; color: var(--white); margin: 0 auto 24px; animation: fadeInUp 0.8s ease 0.1s both; letter-spacing: -1px; }
+    .hero-sub { font-size: clamp(17px, 2.2vw, 20px); color: var(--text-dim); max-width: 620px; margin: 0 auto 48px; animation: fadeInUp 0.8s ease 0.2s both; font-weight: 400; line-height: 1.8; }
+    .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; animation: fadeInUp 0.8s ease 0.3s both; }
+    .hero-proof { margin-top: 72px; display: flex; justify-content: center; gap: 56px; flex-wrap: wrap; animation: fadeInUp 0.8s ease 0.4s both; }
+    .proof-item { text-align: center; }
+    .proof-item .number { font-family: 'Space Grotesk', sans-serif; font-size: 36px; font-weight: 800; color: var(--white); }
+    .proof-item .label { font-size: 14px; color: var(--text-dim); font-weight: 500; margin-top: 4px; }
 
     .btn-primary { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: .5rem; background: var(--violet); color: white; padding: 16px 36px; border-radius: 999px; font-size: 16px; font-weight: 700; text-decoration: none; border: none; cursor: pointer; font-family: 'Inter', sans-serif; box-shadow: 0 0 22px rgba(138,43,226,0.28); transition: all 0.22s ease; overflow: hidden; }
     .btn-primary::after { content: ''; position: absolute; inset: -40%; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.18), transparent 45%); transform: translateX(-18%); opacity: 0.6; pointer-events: none; }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 42px rgba(138,43,226,0.42); filter: saturate(1.08); }
-
     .btn-secondary { background: transparent; color: var(--text); padding: 16px 36px; border-radius: 999px; font-size: 16px; font-weight: 600; text-decoration: none; border: 1px solid var(--glass-border-strong); transition: all 0.3s; backdrop-filter: blur(8px); }
     .btn-secondary:hover { border-color: var(--violet); color: var(--white); box-shadow: 0 0 20px rgba(138,43,226,0.15); }
-
-    .hero-proof { position: relative; z-index: 2; margin-top: 72px; display: flex; justify-content: center; gap: 56px; flex-wrap: wrap; animation: fadeInUp 0.8s ease 0.4s both; }
-    .proof-item { text-align: center; }
-    .proof-item .number { font-family: 'Space Grotesk', sans-serif; font-size: 36px; font-weight: 800; color: var(--white); }
-    .proof-item .label { font-size: 14px; color: var(--text-dim); font-weight: 500; margin-top: 4px; }
 
     section { padding: 120px 24px; position: relative; z-index: 1; }
     .container { max-width: 1200px; margin: 0 auto; }
@@ -139,6 +88,7 @@
     .section-sub { font-size: 18px; color: var(--text-dim); max-width: 600px; margin-bottom: 64px; line-height: 1.8; }
     .section-divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, var(--glass-border-strong), transparent); }
 
+    /* PORTFOLIO - Live iframe preview */
     .portfolio-showcase { display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 1000px; margin: 0 auto; }
     .portfolio-card { overflow: hidden; border-radius: 16px; }
     .portfolio-browser { background: rgba(255,255,255,0.04); padding: 12px 16px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--glass-border); }
@@ -148,15 +98,11 @@
     .browser-dots span:nth-child(2) { background: #FFBD2E; }
     .browser-dots span:nth-child(3) { background: #27CA40; }
     .browser-url { flex: 1; background: rgba(255,255,255,0.06); padding: 6px 12px; border-radius: 6px; font-size: 13px; color: var(--text-dim); margin-left: 8px; border: 1px solid var(--glass-border); }
-    .portfolio-preview { position: relative; min-height: 400px; background: linear-gradient(135deg, #0D0221 0%, #1A0535 50%, #2D1B69 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; }
-    .portfolio-preview::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 20%, rgba(138,43,226,0.3) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, rgba(168,85,247,0.2) 0%, transparent 50%); }
-    .portfolio-preview-content { position: relative; z-index: 1; text-align: center; color: white; padding: 40px; }
-    .portfolio-preview-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 36px; font-weight: 800; margin-bottom: 8px; }
-    .portfolio-preview-content p { font-size: 16px; opacity: 0.7; margin-bottom: 20px; }
-    .portfolio-stats { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; }
-    .portfolio-stats .stat { text-align: center; }
-    .portfolio-stats .stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 800; color: var(--violet-light); }
-    .portfolio-stats .stat-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.6; }
+    .portfolio-preview { position: relative; height: 500px; overflow: hidden; }
+    .portfolio-preview iframe { width: 200%; height: 200%; border: none; transform: scale(0.5); transform-origin: top left; pointer-events: none; }
+    .portfolio-preview-overlay { position: absolute; inset: 0; z-index: 2; cursor: pointer; background: linear-gradient(180deg, transparent 50%, rgba(5,2,20,0.7) 100%); display: flex; align-items: flex-end; justify-content: center; padding-bottom: 24px; opacity: 0; transition: opacity 0.3s; text-decoration: none; }
+    .portfolio-card:hover .portfolio-preview-overlay { opacity: 1; }
+    .portfolio-preview-overlay span { background: var(--violet); color: white; padding: 12px 32px; border-radius: 999px; font-weight: 600; font-size: 15px; box-shadow: 0 0 24px rgba(138,43,226,0.4); }
     .portfolio-info { padding: 32px; }
     .portfolio-info h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; margin-bottom: 8px; color: var(--white); }
     .portfolio-info .client { color: var(--violet-light); font-weight: 600; font-size: 14px; margin-bottom: 12px; }
@@ -166,14 +112,16 @@
     .portfolio-link { display: inline-flex; align-items: center; gap: 6px; color: var(--violet-light); font-weight: 600; text-decoration: none; font-size: 15px; margin-top: 16px; transition: gap 0.2s; }
     .portfolio-link:hover { gap: 10px; color: var(--white); }
 
+    /* PROCESS */
     .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
     .process-card { padding: 36px; }
     .process-number { font-family: 'Space Grotesk', sans-serif; font-size: 52px; font-weight: 800; line-height: 1; margin-bottom: 16px; }
     .process-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; color: var(--white); }
     .process-card p { color: var(--text-dim); font-size: 15px; line-height: 1.7; }
 
-    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; max-width: 1040px; margin: 0 auto; }
-    .pricing-card { padding: 40px 32px; }
+    /* PRICING - Aligned cards with animated glow */
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; align-items: start; }
+    .pricing-card { padding: 40px 32px; display: flex; flex-direction: column; }
     .pricing-card.featured { border-color: rgba(138,43,226,0.40); box-shadow: 0 0 50px rgba(138,43,226,0.15), 0 8px 32px rgba(0,0,0,0.35); transform: scale(1.03); }
     .pricing-card.featured::after { content: 'Most Popular'; position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--violet); color: white; padding: 4px 20px; border-radius: 100px; font-size: 13px; font-weight: 600; z-index: 2; box-shadow: 0 0 20px rgba(138,43,226,0.4); }
     .pricing-card:hover { border-color: rgba(138,43,226,0.35); }
@@ -185,21 +133,31 @@
     .pricing-price { font-family: 'Space Grotesk', sans-serif; font-size: 52px; font-weight: 800; color: var(--white); margin-bottom: 4px; }
     .pricing-price span { font-size: 18px; color: var(--text-dim); font-family: 'Inter', sans-serif; font-weight: 400; }
     .pricing-desc { color: var(--text-dim); font-size: 15px; margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--glass-border); line-height: 1.7; }
-    .pricing-features { list-style: none; margin-bottom: 32px; }
+    .pricing-features { list-style: none; margin-bottom: 32px; flex: 1; }
     .pricing-features li { padding: 8px 0; font-size: 15px; color: var(--text); display: flex; align-items: flex-start; gap: 10px; }
     .pricing-features li::before { content: '\2726'; color: var(--violet-light); font-size: 10px; flex-shrink: 0; margin-top: 5px; }
     .premium-tier .pricing-features li::before { color: var(--gold); }
+    .pricing-demo-btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px; border-radius: 12px; margin-bottom: 12px; background: rgba(138,43,226,0.08); border: 1px solid rgba(138,43,226,0.25); color: var(--violet-light); font-weight: 600; font-size: 15px; text-decoration: none; transition: all 0.3s; }
+    .pricing-demo-btn:hover { background: rgba(138,43,226,0.18); border-color: var(--violet); box-shadow: 0 0 20px rgba(138,43,226,0.15); color: var(--white); }
+    .pricing-demo-btn svg { width: 18px; height: 18px; }
+    .premium-tier .pricing-demo-btn { background: rgba(215,177,90,0.08); border-color: rgba(215,177,90,0.25); color: var(--gold); }
+    .premium-tier .pricing-demo-btn:hover { background: rgba(215,177,90,0.18); border-color: var(--gold); box-shadow: 0 0 20px rgba(215,177,90,0.15); color: var(--white); }
     .pricing-cta { display: block; text-align: center; padding: 14px; border-radius: 999px; font-weight: 600; text-decoration: none; transition: all 0.22s; font-size: 15px; }
     .pricing-cta-outline { border: 1px solid var(--glass-border-strong); color: var(--text); background: transparent; }
     .pricing-cta-outline:hover { background: rgba(138,43,226,0.12); border-color: var(--violet); color: var(--white); }
     .pricing-cta-fill { background: var(--violet); color: white; border: 1px solid var(--violet); box-shadow: 0 0 20px rgba(138,43,226,0.25); }
     .pricing-cta-fill:hover { box-shadow: 0 0 36px rgba(138,43,226,0.4); transform: translateY(-1px); }
-    .pricing-demo { display: block; text-align: center; margin-top: 16px; color: var(--text-dim); font-size: 14px; font-weight: 500; text-decoration: none; transition: color 0.2s; }
-    .pricing-demo:hover { color: var(--violet-light); }
-    .premium-tier .pricing-demo:hover { color: var(--gold); }
     .pricing-note { text-align: center; margin-top: 48px; color: var(--text-dim); font-size: 15px; line-height: 1.8; }
     .pricing-note strong { color: var(--white); }
 
+    @keyframes borderGlow { 0%, 100% { border-color: rgba(138,43,226,0.15); box-shadow: 0 8px 32px rgba(0,0,0,0.35); } 50% { border-color: rgba(138,43,226,0.35); box-shadow: 0 8px 32px rgba(0,0,0,0.35), 0 0 30px rgba(138,43,226,0.1); } }
+    @keyframes borderGlowGold { 0%, 100% { border-color: rgba(215,177,90,0.15); box-shadow: 0 8px 32px rgba(0,0,0,0.35); } 50% { border-color: rgba(215,177,90,0.40); box-shadow: 0 8px 32px rgba(0,0,0,0.35), 0 0 30px rgba(215,177,90,0.1); } }
+    @keyframes borderGlowFeatured { 0%, 100% { box-shadow: 0 0 50px rgba(138,43,226,0.15), 0 8px 32px rgba(0,0,0,0.35); } 50% { box-shadow: 0 0 60px rgba(138,43,226,0.30), 0 8px 32px rgba(0,0,0,0.35), 0 0 80px rgba(138,43,226,0.08); } }
+    .pricing-card { animation: borderGlow 4s ease-in-out infinite; }
+    .pricing-card.featured { animation: borderGlowFeatured 3s ease-in-out infinite; }
+    .pricing-card.premium-tier { animation: borderGlowGold 4s ease-in-out infinite; }
+
+    /* FAQ */
     .faq-list { max-width: 720px; margin: 0 auto; }
     .faq-item { border-bottom: 1px solid var(--glass-border); }
     .faq-question { width: 100%; background: none; border: none; padding: 24px 0; font-size: 17px; font-weight: 600; color: var(--text); text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Inter', sans-serif; transition: color 0.2s; }
@@ -210,9 +168,19 @@
     .faq-item.active .faq-answer { max-height: 300px; padding-bottom: 24px; }
     .faq-answer p { color: var(--text-dim); font-size: 15px; line-height: 1.8; }
 
-    .contact-wrapper { max-width: 620px; margin: 0 auto; text-align: center; }
-    .contact-wrapper h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(36px, 4vw, 48px); font-weight: 800; color: var(--white); margin-bottom: 16px; }
-    .contact-sub { color: var(--text-dim); font-size: 18px; margin-bottom: 48px; line-height: 1.8; }
+    /* CONTACT - Two column layout */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; max-width: 1100px; margin: 0 auto; align-items: start; }
+    .contact-left h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(36px, 4vw, 48px); font-weight: 800; color: var(--white); margin-bottom: 16px; }
+    .contact-sub { color: var(--text-dim); font-size: 18px; margin-bottom: 40px; line-height: 1.8; }
+    .contact-perks { list-style: none; margin-bottom: 40px; }
+    .contact-perks li { display: flex; align-items: flex-start; gap: 14px; padding: 14px 0; font-size: 16px; color: var(--text); border-bottom: 1px solid var(--glass-border); }
+    .contact-perks li:last-child { border-bottom: none; }
+    .perk-icon { width: 40px; height: 40px; min-width: 40px; border-radius: 10px; background: rgba(138,43,226,0.12); border: 1px solid rgba(138,43,226,0.25); display: flex; align-items: center; justify-content: center; font-size: 18px; }
+    .perk-text strong { display: block; color: var(--white); font-size: 15px; margin-bottom: 2px; }
+    .perk-text span { color: var(--text-dim); font-size: 14px; }
+    .contact-direct { margin-top: 8px; font-size: 15px; color: var(--text-dim); }
+    .contact-direct a { color: var(--violet-light); font-weight: 600; text-decoration: none; }
+    .contact-direct a:hover { color: var(--white); }
     .contact-form { text-align: left; }
     .form-group { margin-bottom: 20px; }
     .form-group label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--text); }
@@ -224,9 +192,6 @@
     .form-group textarea { resize: vertical; min-height: 120px; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .form-submit { width: 100%; margin-top: 8px; }
-    .contact-direct { margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--glass-border); font-size: 15px; color: var(--text-dim); }
-    .contact-direct a { color: var(--violet-light); font-weight: 600; text-decoration: none; }
-    .contact-direct a:hover { color: var(--white); }
 
     footer { padding: 48px 24px; text-align: center; border-top: 1px solid var(--glass-border); position: relative; z-index: 1; }
     .footer-logo { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 800; color: var(--white); margin-bottom: 8px; }
@@ -242,191 +207,160 @@
     .reveal { opacity: 0; transform: translateY(26px); transition: opacity .85s ease, transform .85s ease; will-change: opacity, transform; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
+    @media (max-width: 900px) {
+      .pricing-grid { grid-template-columns: 1fr; max-width: 420px; }
+      .pricing-card.featured { transform: none; }
+      .pricing-card.featured:hover { transform: translateY(-6px); }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .mobile-menu-btn { display: block; }
       .nav-links.active { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(5, 2, 20, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 24px; border-bottom: 1px solid var(--glass-border); gap: 16px; }
-      .hero { padding: 140px 24px 80px; }
+      .hero { min-height: auto; padding: 140px 24px 80px; }
+      .hero-video-wrapper video { display: none; }
+      .hero-video-wrapper { background: radial-gradient(ellipse at 50% 30%, rgba(138,43,226,0.18), transparent 70%); }
       .hero-proof { gap: 28px; }
-      section { padding: 80px 24px; }
-      .pricing-card.featured { transform: none; }
-      .pricing-card.featured:hover { transform: translateY(-6px); }
-      .form-row { grid-template-columns: 1fr; }
-      .portfolio-preview { min-height: 280px; }
       .proof-item .number { font-size: 28px; }
+      section { padding: 80px 24px; }
+      .portfolio-preview { height: 280px; }
+      .form-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-
 <div id="particles"></div>
-
-<nav>
-  <div class="nav-inner">
-    <a href="#" class="nav-logo">
-      <div class="nav-logo-icon">V</div>
-      <div class="nav-logo-text"><span>Violet</span> Web</div>
-    </a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#process">Process</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#contact" class="nav-cta">Start a Project</a></li>
-    </ul>
-    <button class="mobile-menu-btn" id="menuBtn" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
+<nav><div class="nav-inner"><a href="#" class="nav-logo"><div class="nav-logo-icon">V</div><div class="nav-logo-text"><span>Violet</span> Web</div></a><ul class="nav-links" id="navLinks"><li><a href="#portfolio">Portfolio</a></li><li><a href="#process">Process</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contact" class="nav-cta">Start a Project</a></li></ul><button class="mobile-menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
 
 <section class="hero">
-  <!-- Video Background -->
   <div class="hero-video-wrapper">
-    <video autoplay muted loop playsinline>
-      <source src="hero-bg-video.mp4" type="video/mp4">
-    </video>
+    <video autoplay muted loop playsinline><source src="hero-bg-video.mp4" type="video/mp4"></video>
     <div class="hero-video-overlay"></div>
   </div>
-  <div class="hero-badge"&#10022; Powered by Violet Media</div>
-  <h1>Websites that make your business <span class="cosmic-text">unforgettable</span></h1>
-  <p class="hero-sub">Cinematic, mobile-responsive websites for businesses and creators worldwide. AI-powered design. You own your domain &#8212; we handle the rest.</p>
-  <div class="hero-actions">
-    <a href="#contact" class="btn-primary">Start Your Project</a>
-    <a href="#portfolio" class="btn-secondary">See Our Work</a>
-  </div>
-  <div class="hero-proof">
-    <div class="proof-item"><div class="number cosmic-text">14M+</div><div class="label">Views Across Platforms</div></div>
-    <div class="proof-item"><div class="number cosmic-text">100%</div><div class="label">Client Satisfaction</div></div>
-    <div class="proof-item"><div class="number cosmic-text">$800</div><div class="label">AUD Starting Price</div></div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<section id="portfolio">
-  <div class="container">
-    <div class="section-label reveal">Our Work</div>
-    <h2 class="section-title reveal">Built to impress. <span class="cosmic-text">Engineered to convert.</span></h2>
-    <p class="section-sub reveal">Every website we deliver is production-grade, mobile-responsive, and fully owned by you.</p>
-    <div class="portfolio-showcase">
-      <div class="portfolio-card glass-card reveal">
-        <div class="portfolio-browser">
-          <div class="browser-dots"><span></span><span></span><span></span></div>
-          <div class="browser-url">violetmedia.org</div>
-        </div>
-        <div class="portfolio-preview">
-          <div class="portfolio-preview-content">
-            <h3>The Cosmic Empire</h3>
-            <p>Violet Media Productions &#8212; violetmedia.org</p>
-            <div class="portfolio-stats">
-              <div class="stat"><div class="stat-num">14M+</div><div class="stat-label">Views</div></div>
-              <div class="stat"><div class="stat-num">718K+</div><div class="stat-label">Likes</div></div>
-              <div class="stat"><div class="stat-num">98.5%</div><div class="stat-label">FYP Traffic</div></div>
-            </div>
-          </div>
-        </div>
-        <div class="portfolio-info">
-          <div class="client">Violet Media Productions</div>
-          <h3>Cinematic Production House Website</h3>
-          <p>Full cinematic website with video hero, live statistics dashboard, integrated Spotify artist embed, AI technology showcase, services section, and contact system. Dark cosmic aesthetic with violet accents.</p>
-          <div class="portfolio-tags">
-            <span>Cinematic Design</span><span>Video Hero</span><span>Mobile Responsive</span><span>Spotify Integration</span><span>GitHub + Netlify</span>
-          </div>
-          <a href="https://violetmedia.org" target="_blank" class="portfolio-link">View Live Site &#8594;</a>
-        </div>
-      </div>
+  <div class="hero-content">
+    <div class="hero-badge">&#10022; Powered by Violet Media</div>
+    <h1>Websites that make your business <span class="cosmic-text">unforgettable</span></h1>
+    <p class="hero-sub">Cinematic, mobile-responsive websites for businesses and creators worldwide. AI-powered design. You own your domain &#8212; we handle the rest.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Start Your Project</a>
+      <a href="#portfolio" class="btn-secondary">See Our Work</a>
+    </div>
+    <div class="hero-proof">
+      <div class="proof-item"><div class="number cosmic-text">14M+</div><div class="label">Views Across Platforms</div></div>
+      <div class="proof-item"><div class="number cosmic-text">100%</div><div class="label">Client Satisfaction</div></div>
+      <div class="proof-item"><div class="number cosmic-text">$800</div><div class="label">AUD Starting Price</div></div>
     </div>
   </div>
 </section>
 
 <div class="section-divider"></div>
 
-<section id="process">
-  <div class="container">
-    <div class="section-label reveal">How It Works</div>
-    <h2 class="section-title reveal">From brief to launch in <span class="cosmic-text">4 steps</span></h2>
-    <p class="section-sub reveal">A simple, transparent process. No surprises, no hidden fees.</p>
-    <div class="process-grid">
-      <div class="process-card glass-card reveal"><div class="process-number cosmic-text">01</div><h3>Discovery</h3><p>We discuss your vision, audience, and goals. You tell us what your business needs &#8212; we translate that into a design brief.</p></div>
-      <div class="process-card glass-card reveal"><div class="process-number cosmic-text">02</div><h3>Design &amp; Build</h3><p>Using AI-powered workflows, we design and build your website with cinematic attention to detail. Fast turnaround without sacrificing quality.</p></div>
-      <div class="process-card glass-card reveal"><div class="process-number cosmic-text">03</div><h3>Review &amp; Refine</h3><p>You see the first draft and provide feedback. Two rounds of revisions are included to make sure every detail is right.</p></div>
-      <div class="process-card glass-card reveal"><div class="process-number cosmic-text">04</div><h3>Launch &amp; Handover</h3><p>Your site goes live. You own your domain &#8212; we host and maintain it. Want full control? We transfer everything. No lock-in.</p></div>
+<section id="portfolio"><div class="container">
+  <div class="section-label reveal">Our Work</div>
+  <h2 class="section-title reveal">Built to impress. <span class="cosmic-text">Engineered to convert.</span></h2>
+  <p class="section-sub reveal">Every website we deliver is production-grade, mobile-responsive, and fully owned by you.</p>
+  <div class="portfolio-showcase">
+    <div class="portfolio-card glass-card reveal">
+      <div class="portfolio-browser"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">violetmedia.org</div></div>
+      <div class="portfolio-preview">
+        <iframe src="https://violetmedia.org" loading="lazy" title="Violet Media Productions"></iframe>
+        <a href="https://violetmedia.org" target="_blank" class="portfolio-preview-overlay"><span>Visit Live Site &#8594;</span></a>
+      </div>
+      <div class="portfolio-info">
+        <div class="client">Violet Media Productions</div>
+        <h3>Cinematic Production House Website</h3>
+        <p>Full cinematic website with video hero, live statistics dashboard, integrated Spotify artist embed, AI technology showcase, services section, and contact system. Dark cosmic aesthetic with violet accents.</p>
+        <div class="portfolio-tags"><span>Cinematic Design</span><span>Video Hero</span><span>Mobile Responsive</span><span>Spotify Integration</span><span>GitHub + Netlify</span></div>
+        <a href="https://violetmedia.org" target="_blank" class="portfolio-link">View Live Site &#8594;</a>
+      </div>
     </div>
   </div>
-</section>
+</div></section>
 
 <div class="section-divider"></div>
 
-<section id="pricing">
-  <div class="container">
-    <div class="section-label reveal">Pricing</div>
-    <h2 class="section-title reveal">Transparent pricing. <span class="cosmic-text">No hidden fees.</span></h2>
-    <p class="section-sub reveal">All prices in Australian Dollars. Your domain, your brand &#8212; we build and host it for you.</p>
-    <div class="pricing-grid">
-      <div class="pricing-card glass-card reveal">
-        <div class="pricing-tier">Starter</div>
-        <div class="pricing-price">$800 <span>AUD</span></div>
-        <p class="pricing-desc">A clean, professional online presence for your business.</p>
-        <ul class="pricing-features">
-          <li>Single page with up to 5 sections</li><li>Mobile responsive design</li><li>Contact form</li><li>Basic SEO setup</li><li>Google Maps integration</li><li>2 rounds of revisions</li><li>Hosting included &#8212; transfer available</li>
-        </ul>
-        <a href="#contact" class="pricing-cta pricing-cta-outline">Get Started</a>
-        <a href="demos/starter.html" class="pricing-demo" target="_blank">View Demo &#8594;</a>
-      </div>
-      <div class="pricing-card glass-card featured reveal">
-        <div class="pricing-tier">Standard</div>
-        <div class="pricing-price">$1,500 <span>AUD</span></div>
-        <p class="pricing-desc">A custom-designed website that sets you apart from the competition.</p>
-        <ul class="pricing-features">
-          <li>Multi-page (up to 5 pages)</li><li>Custom design tailored to your brand</li><li>Image gallery / portfolio section</li><li>Social media integration</li><li>Google Maps + analytics</li><li>2 rounds of revisions</li><li>Hosting included &#8212; transfer available</li>
-        </ul>
-        <a href="#contact" class="pricing-cta pricing-cta-fill">Get Started</a>
-        <a href="demos/standard.html" class="pricing-demo" target="_blank">View Demo &#8594;</a>
-      </div>
-      <div class="pricing-card glass-card premium-tier reveal">
-        <div class="pricing-tier">Premium</div>
-        <div class="pricing-price">$3,000 <span>AUD</span></div>
-        <p class="pricing-desc">A cinematic experience like violetmedia.org &#8212; for businesses that demand the best.</p>
-        <ul class="pricing-features">
-          <li>Full cinematic design with animations</li><li>Video hero section</li><li>Brand identity integration</li><li>Advanced SEO + CMS setup</li><li>Custom interactions and effects</li><li>2 rounds of revisions</li><li>Hosting included &#8212; transfer available</li>
-        </ul>
-        <a href="#contact" class="pricing-cta pricing-cta-outline">Get Started</a>
-        <a href="demos/premium.html" class="pricing-demo" target="_blank">View Demo &#8594;</a>
-      </div>
-    </div>
-    <p class="pricing-note reveal"><strong>Optional maintenance:</strong> $150&#8211;$200 AUD/month for ongoing updates and support.<br><strong>Payment:</strong> 50% deposit to start. 50% on completion. Bank transfer or PayPal.</p>
+<section id="process"><div class="container">
+  <div class="section-label reveal">How It Works</div>
+  <h2 class="section-title reveal">From brief to launch in <span class="cosmic-text">4 steps</span></h2>
+  <p class="section-sub reveal">A simple, transparent process. No surprises, no hidden fees.</p>
+  <div class="process-grid">
+    <div class="process-card glass-card reveal"><div class="process-number cosmic-text">01</div><h3>Discovery</h3><p>We discuss your vision, audience, and goals. You tell us what your business needs &#8212; we translate that into a design brief.</p></div>
+    <div class="process-card glass-card reveal"><div class="process-number cosmic-text">02</div><h3>Design &amp; Build</h3><p>Using AI-powered workflows, we design and build your website with cinematic attention to detail. Fast turnaround without sacrificing quality.</p></div>
+    <div class="process-card glass-card reveal"><div class="process-number cosmic-text">03</div><h3>Review &amp; Refine</h3><p>You see the first draft and provide feedback. Two rounds of revisions are included to make sure every detail is right.</p></div>
+    <div class="process-card glass-card reveal"><div class="process-number cosmic-text">04</div><h3>Launch &amp; Handover</h3><p>Your site goes live. You own your domain &#8212; we host and maintain it. Want full control? We transfer everything. No lock-in.</p></div>
   </div>
-</section>
+</div></section>
 
 <div class="section-divider"></div>
 
-<section id="faq">
-  <div class="container">
-    <div class="section-label reveal">FAQ</div>
-    <h2 class="section-title reveal">Common questions</h2>
-    <p class="section-sub reveal">Everything you need to know before starting a project.</p>
-    <div class="faq-list">
-      <div class="faq-item reveal"><button class="faq-question">Do I own my website after it's built? <span class="faq-icon">+</span></button><div class="faq-answer"><p>Yes &#8212; you own your domain and have full rights to your website. We host and maintain your site on our professional infrastructure so you never have to deal with the technical side. If you ever want full control, we transfer all files, source code, and hosting to you &#8212; no questions asked. There is no vendor lock-in.</p></div></div>
-      <div class="faq-item reveal"><button class="faq-question">What does &#8220;AI-powered design&#8221; mean? <span class="faq-icon">+</span></button><div class="faq-answer"><p>We use artificial intelligence tools to accelerate the design and development process &#8212; from generating visual concepts to writing optimised code. Every output is directed, reviewed, and refined by a human creative director. The result: faster delivery, higher quality, lower cost than traditional agencies.</p></div></div>
-      <div class="faq-item reveal"><button class="faq-question">How long does it take? <span class="faq-icon">+</span></button><div class="faq-answer"><p>Most projects are delivered within 7&#8211;14 days depending on the package. Starter sites can be ready in as little as 5 days. The timeline depends on how quickly you provide feedback during the revision rounds.</p></div></div>
-      <div class="faq-item reveal"><button class="faq-question">What's included in revisions? <span class="faq-icon">+</span></button><div class="faq-answer"><p>Every package includes 2 rounds of revisions. A revision round is one consolidated set of feedback. Additional rounds can be arranged at a separate quoted rate. Revisions cover design changes, content updates, and layout adjustments within the original scope.</p></div></div>
-      <div class="faq-item reveal"><button class="faq-question">Do I need to provide content and images? <span class="faq-icon">+</span></button><div class="faq-answer"><p>If you have brand assets (logo, images, copy), we'll integrate them. If not, we can help source or create appropriate content as part of the design process. We'll discuss this during the discovery phase.</p></div></div>
-      <div class="faq-item reveal"><button class="faq-question">Is there ongoing hosting costs? <span class="faq-icon">+</span></button><div class="faq-answer"><p>We host your site on professional infrastructure at no additional cost &#8212; hosting is included. Your only recurring cost is the domain name (around $20 AUD/year), which you own and control. Optional maintenance retainers start at $150 AUD/month if you want ongoing content updates and support.</p></div></div>
-      <div class="faq-item reveal"><button class="faq-question">Can you work with clients outside Australia? <span class="faq-icon">+</span></button><div class="faq-answer"><p>Absolutely. We deliver 100% remotely and work with clients anywhere in the world. All communication is via email and video call. Prices are quoted in AUD regardless of your location.</p></div></div>
+<section id="pricing"><div class="container">
+  <div class="section-label reveal">Pricing</div>
+  <h2 class="section-title reveal">Transparent pricing. <span class="cosmic-text">No hidden fees.</span></h2>
+  <p class="section-sub reveal">All prices in Australian Dollars. Your domain, your brand &#8212; we build and host it for you.</p>
+  <div class="pricing-grid">
+    <div class="pricing-card glass-card reveal">
+      <div class="pricing-tier">Starter</div>
+      <div class="pricing-price">$800 <span>AUD</span></div>
+      <p class="pricing-desc">A clean, professional online presence for your business.</p>
+      <ul class="pricing-features"><li>Single page with up to 5 sections</li><li>Mobile responsive design</li><li>Contact form</li><li>Basic SEO setup</li><li>Google Maps integration</li><li>2 rounds of revisions</li><li>Hosting included &#8212; transfer available</li></ul>
+      <a href="demos/starter.html" class="pricing-demo-btn" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/></svg>View Live Demo</a>
+      <a href="#contact" class="pricing-cta pricing-cta-outline">Get Started</a>
+    </div>
+    <div class="pricing-card glass-card featured reveal">
+      <div class="pricing-tier">Standard</div>
+      <div class="pricing-price">$1,500 <span>AUD</span></div>
+      <p class="pricing-desc">A custom-designed website that sets you apart from the competition.</p>
+      <ul class="pricing-features"><li>Multi-page (up to 5 pages)</li><li>Custom design tailored to your brand</li><li>Image gallery / portfolio section</li><li>Social media integration</li><li>Google Maps + analytics</li><li>2 rounds of revisions</li><li>Hosting included &#8212; transfer available</li></ul>
+      <a href="demos/standard.html" class="pricing-demo-btn" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/></svg>View Live Demo</a>
+      <a href="#contact" class="pricing-cta pricing-cta-fill">Get Started</a>
+    </div>
+    <div class="pricing-card glass-card premium-tier reveal">
+      <div class="pricing-tier">Premium</div>
+      <div class="pricing-price">$3,000 <span>AUD</span></div>
+      <p class="pricing-desc">A cinematic experience like violetmedia.org &#8212; for businesses that demand the best.</p>
+      <ul class="pricing-features"><li>Full cinematic design with animations</li><li>Video hero section</li><li>Brand identity integration</li><li>Advanced SEO + CMS setup</li><li>Custom interactions and effects</li><li>2 rounds of revisions</li><li>Hosting included &#8212; transfer available</li></ul>
+      <a href="demos/premium.html" class="pricing-demo-btn" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/></svg>View Live Demo</a>
+      <a href="#contact" class="pricing-cta pricing-cta-outline">Get Started</a>
     </div>
   </div>
-</section>
+  <p class="pricing-note reveal"><strong>Optional maintenance:</strong> $150&#8211;$200 AUD/month for ongoing updates and support.<br><strong>Payment:</strong> 50% deposit to start. 50% on completion. Bank transfer or PayPal.</p>
+</div></section>
 
 <div class="section-divider"></div>
 
-<section id="contact">
-  <div class="container">
-    <div class="contact-wrapper">
+<section id="faq"><div class="container">
+  <div class="section-label reveal">FAQ</div>
+  <h2 class="section-title reveal">Common questions</h2>
+  <p class="section-sub reveal">Everything you need to know before starting a project.</p>
+  <div class="faq-list">
+    <div class="faq-item reveal"><button class="faq-question">Do I own my website after it's built? <span class="faq-icon">+</span></button><div class="faq-answer"><p>Yes &#8212; you own your domain and have full rights to your website. We host and maintain your site on our professional infrastructure so you never have to deal with the technical side. If you ever want full control, we transfer all files, source code, and hosting to you &#8212; no questions asked. There is no vendor lock-in.</p></div></div>
+    <div class="faq-item reveal"><button class="faq-question">What does &#8220;AI-powered design&#8221; mean? <span class="faq-icon">+</span></button><div class="faq-answer"><p>We use artificial intelligence tools to accelerate the design and development process &#8212; from generating visual concepts to writing optimised code. Every output is directed, reviewed, and refined by a human creative director. The result: faster delivery, higher quality, lower cost than traditional agencies.</p></div></div>
+    <div class="faq-item reveal"><button class="faq-question">How long does it take? <span class="faq-icon">+</span></button><div class="faq-answer"><p>Most projects are delivered within 7&#8211;14 days depending on the package. Starter sites can be ready in as little as 5 days. The timeline depends on how quickly you provide feedback during the revision rounds.</p></div></div>
+    <div class="faq-item reveal"><button class="faq-question">What's included in revisions? <span class="faq-icon">+</span></button><div class="faq-answer"><p>Every package includes 2 rounds of revisions. A revision round is one consolidated set of feedback. Additional rounds can be arranged at a separate quoted rate. Revisions cover design changes, content updates, and layout adjustments within the original scope.</p></div></div>
+    <div class="faq-item reveal"><button class="faq-question">Do I need to provide content and images? <span class="faq-icon">+</span></button><div class="faq-answer"><p>If you have brand assets (logo, images, copy), we'll integrate them. If not, we can help source or create appropriate content as part of the design process. We'll discuss this during the discovery phase.</p></div></div>
+    <div class="faq-item reveal"><button class="faq-question">Is there ongoing hosting costs? <span class="faq-icon">+</span></button><div class="faq-answer"><p>We host your site on professional infrastructure at no additional cost &#8212; hosting is included. Your only recurring cost is the domain name (around $20 AUD/year), which you own and control. Optional maintenance retainers start at $150 AUD/month if you want ongoing content updates and support.</p></div></div>
+    <div class="faq-item reveal"><button class="faq-question">Can you work with clients outside Australia? <span class="faq-icon">+</span></button><div class="faq-answer"><p>Absolutely. We deliver 100% remotely and work with clients anywhere in the world. All communication is via email and video call. Prices are quoted in AUD regardless of your location.</p></div></div>
+  </div>
+</div></section>
+
+<div class="section-divider"></div>
+
+<section id="contact"><div class="container">
+  <div class="contact-grid">
+    <div class="contact-left">
       <div class="section-label reveal">Start a Project</div>
       <h2 class="reveal">Let's build something <span class="cosmic-text">legendary</span></h2>
       <p class="contact-sub reveal">Tell us about your project and we'll get back to you within 24 hours.</p>
-      <form class="contact-form glass-card reveal" style="padding: 40px;" action="https://formsubmit.co/violetmediastudio@gmail.com" method="POST">
+      <ul class="contact-perks reveal">
+        <li><div class="perk-icon">&#9889;</div><div class="perk-text"><strong>Fast Turnaround</strong><span>Most projects delivered in 7&#8211;14 days</span></div></li>
+        <li><div class="perk-icon">&#127912;</div><div class="perk-text"><strong>AI-Powered Design</strong><span>Cinematic quality at a fraction of agency prices</span></div></li>
+        <li><div class="perk-icon">&#128274;</div><div class="perk-text"><strong>You Own Everything</strong><span>Your domain, your code &#8212; no lock-in, ever</span></div></li>
+        <li><div class="perk-icon">&#127757;</div><div class="perk-text"><strong>Worldwide Clients</strong><span>100% remote &#8212; we work with anyone, anywhere</span></div></li>
+      </ul>
+      <div class="contact-direct reveal">Or email us directly at <a href="mailto:violetmediastudio@gmail.com">violetmediastudio@gmail.com</a></div>
+    </div>
+    <div class="contact-right">
+      <form class="contact-form glass-card reveal" style="padding:40px;" action="https://formsubmit.co/violetmediastudio@gmail.com" method="POST">
         <input type="hidden" name="_subject" value="New Web Design Inquiry &#8212; web.violetmedia.org">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_next" value="https://web.violetmedia.org/#contact">
@@ -439,20 +373,14 @@
         <div class="form-group"><label for="message">Tell us about your project</label><textarea id="message" name="message" placeholder="What does your business do? Do you have an existing website? What are your goals?"></textarea></div>
         <button type="submit" class="btn-primary form-submit">Send Inquiry</button>
       </form>
-      <div class="contact-direct reveal">Or email us directly at <a href="mailto:violetmediastudio@gmail.com">violetmediastudio@gmail.com</a></div>
     </div>
   </div>
-</section>
+</div></section>
 
 <footer>
   <div class="footer-logo"><span>Violet</span> Media</div>
   <div class="footer-tagline">Quality is for the ages.</div>
-  <div class="footer-links">
-    <a href="https://violetmedia.org" target="_blank">violetmedia.org</a>
-    <a href="https://www.tiktok.com/@cosmictease" target="_blank">TikTok</a>
-    <a href="https://youtube.com/@cosmic_tease" target="_blank">YouTube</a>
-    <a href="https://linkedin.com/in/petersarosi" target="_blank">LinkedIn</a>
-  </div>
+  <div class="footer-links"><a href="https://violetmedia.org" target="_blank">violetmedia.org</a><a href="https://www.tiktok.com/@cosmictease" target="_blank">TikTok</a><a href="https://youtube.com/@cosmic_tease" target="_blank">YouTube</a><a href="https://linkedin.com/in/petersarosi" target="_blank">LinkedIn</a></div>
   <div class="footer-copy">&copy; 2026 Violet Media Productions. ABN 20 188 436 344. Perth, Western Australia.</div>
 </footer>
 
@@ -460,12 +388,7 @@
 (function(){
   var c=document.getElementById('particles'),n=window.innerWidth<768?50:90;
   var cols=['rgba(255,255,255,','rgba(138,43,226,','rgba(45,107,255,','rgba(168,85,247,'];
-  for(var i=0;i<n;i++){
-    var p=document.createElement('div');p.className='particle';
-    var s=Math.random()*2.5+0.5,co=cols[Math.floor(Math.random()*cols.length)],o=Math.random()*0.5+0.2,d=Math.random()*40+25,dl=Math.random()*d,l=Math.random()*100,t=Math.random()*100;
-    p.style.cssText='width:'+s+'px;height:'+s+'px;background:'+co+o+');left:'+l+'%;top:'+t+'%;animation-duration:'+d+'s;animation-delay:-'+dl+'s;box-shadow:0 0 '+s*3+'px '+co+o*0.5+');';
-    c.appendChild(p);
-  }
+  for(var i=0;i<n;i++){var p=document.createElement('div');p.className='particle';var s=Math.random()*2.5+0.5,co=cols[Math.floor(Math.random()*cols.length)],o=Math.random()*0.5+0.2,d=Math.random()*40+25,dl=Math.random()*d,l=Math.random()*100,t=Math.random()*100;p.style.cssText='width:'+s+'px;height:'+s+'px;background:'+co+o+');left:'+l+'%;top:'+t+'%;animation-duration:'+d+'s;animation-delay:-'+dl+'s;box-shadow:0 0 '+s*3+'px '+co+o*0.5+');';c.appendChild(p);}
 })();
 document.getElementById('menuBtn').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('active');});
 document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('navLinks').classList.remove('active');});});
