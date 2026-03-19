@@ -45,7 +45,7 @@
     }
     #particles { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
     .particle { position: absolute; border-radius: 50%; animation: drift linear infinite; }
-    @keyframes drift { 0% { transform: translateY(0) translateX(0); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(-110vh) translateX(40px); opacity: 0; } }
+    @keyframes drift { 0% { transform: translateY(0) translateX(0); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(110vh) translateX(40px); opacity: 0; } }
 
     /* DRAMA FONT */
     .font-drama { font-family: 'Playfair Display', Georgia, serif; }
@@ -550,7 +550,7 @@
 <script>
 (function(){
   // Particles
-  var c=document.getElementById('particles'),n=window.innerWidth<768?50:90;
+  var c=document.getElementById('particles'),n=window.innerWidth<768?80:150;
   var cols=['rgba(255,255,255,','rgba(138,43,226,','rgba(45,107,255,','rgba(168,85,247,'];
   for(var i=0;i<n;i++){var p=document.createElement('div');p.className='particle';var s=Math.random()*2.5+0.5,co=cols[Math.floor(Math.random()*cols.length)],o=Math.random()*0.5+0.2,d=Math.random()*40+25,dl=Math.random()*d,l=Math.random()*100,t=Math.random()*100;p.style.cssText='width:'+s+'px;height:'+s+'px;background:'+co+o+');left:'+l+'%;top:'+t+'%;animation-duration:'+d+'s;animation-delay:-'+dl+'s;box-shadow:0 0 '+s*3+'px '+co+o*0.5+');';c.appendChild(p);}
 
