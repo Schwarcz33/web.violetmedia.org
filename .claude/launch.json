@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "violet-web",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["http-server", "C:\\Users\\Home\\Claude Code New work\\web.violetmedia.org", "-p", "8090", "-c-1"],
+      "port": 8090
+    }
+  ]
+}
