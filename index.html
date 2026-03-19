@@ -356,37 +356,12 @@
   <div class="portfolio-showcase">
     <div class="portfolio-card glass-card reveal">
       <div class="portfolio-browser"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">violetmedia.org</div></div>
-      <a href="https://violetmedia.org" target="_blank" class="portfolio-visual">
-        <div class="pv-content">
-          <div class="pv-bg-glow pv-glow-1"></div>
-          <div class="pv-bg-glow pv-glow-2"></div>
-          <div class="pv-bg-glow pv-glow-3"></div>
-          <div class="pv-dot" style="width:2px;height:2px;left:12%;top:80%;animation-duration:22s;animation-delay:-3s;"></div>
-          <div class="pv-dot" style="width:1.5px;height:1.5px;left:28%;top:90%;animation-duration:28s;animation-delay:-8s;"></div>
-          <div class="pv-dot" style="width:2.5px;height:2.5px;left:55%;top:75%;animation-duration:18s;animation-delay:-2s;background:rgba(45,107,255,0.5);"></div>
-          <div class="pv-dot" style="width:1px;height:1px;left:72%;top:85%;animation-duration:32s;animation-delay:-12s;"></div>
-          <div class="pv-dot" style="width:2px;height:2px;left:88%;top:70%;animation-duration:24s;animation-delay:-6s;background:rgba(215,177,90,0.4);"></div>
-          <div class="pv-dot" style="width:1.5px;height:1.5px;left:40%;top:95%;animation-duration:20s;animation-delay:-15s;"></div>
-          <div class="pv-nav">
-            <div class="pv-nav-logo">V</div>
-            <div class="pv-nav-links"><span></span><span></span><span></span><span></span></div>
-          </div>
-          <div class="pv-hero">
-            <div class="pv-badge"><span>&#10022; VIOLET MEDIA PRODUCTIONS</span></div>
-            <div class="pv-title">We Don't Just Create. <span class="pv-grad">We Produce Worlds.</span></div>
-            <div class="pv-subtitle">AI-powered cinematic production. Music, video, and digital experiences.</div>
-            <div class="pv-btns"><div class="pv-btn-1">Explore Our Work</div><div class="pv-btn-2">Watch Showreel</div></div>
-            <div class="pv-stats">
-              <div class="pv-stat"><div class="pv-stat-num">14M+</div><div class="pv-stat-label">Views</div></div>
-              <div class="pv-stat"><div class="pv-stat-num">200+</div><div class="pv-stat-label">Productions</div></div>
-              <div class="pv-stat"><div class="pv-stat-num">50+</div><div class="pv-stat-label">Tracks</div></div>
-            </div>
-          </div>
-        </div>
-        <div class="pv-overlay"><span>Visit Live Site &#8594;</span></div>
-      </a>
+      <div class="portfolio-visual" style="position:relative;overflow:hidden;border-radius:0 0 12px 12px;">
+        <iframe src="https://violetmedia.org" style="width:100%;height:500px;border:none;pointer-events:none;" loading="lazy" title="Violet Media Live Preview"></iframe>
+        <a href="https://violetmedia.org" target="_blank" class="pv-overlay" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(5,2,20,0.3);opacity:0;transition:opacity 0.3s;cursor:pointer;text-decoration:none;"><span style="background:rgba(138,43,226,0.9);color:white;padding:12px 28px;border-radius:999px;font-weight:700;font-size:15px;">Visit Live Site &#8594;</span></a>
+      </div>
       <div class="portfolio-info">
-        <div class="client">Violet Media Productions</div>
+        <div class="client">Violet Media</div>
         <h3>Cinematic Production House Website</h3>
         <p>Full cinematic website with video hero, live statistics dashboard, integrated Spotify artist embed, AI technology showcase, services section, and contact system. Dark cosmic aesthetic with violet accents.</p>
         <div class="portfolio-tags"><span>Cinematic Design</span><span>Video Hero</span><span>Mobile Responsive</span><span>Spotify Integration</span><span>GitHub + Netlify</span></div>
@@ -550,7 +525,7 @@
 <script>
 (function(){
   // Particles
-  var c=document.getElementById('particles'),n=window.innerWidth<768?80:150;
+  var c=document.getElementById('particles'),n=window.innerWidth<768?140:280;
   var cols=['rgba(255,255,255,','rgba(138,43,226,','rgba(45,107,255,','rgba(168,85,247,'];
   for(var i=0;i<n;i++){var p=document.createElement('div');p.className='particle';var s=Math.random()*2.5+0.5,co=cols[Math.floor(Math.random()*cols.length)],o=Math.random()*0.5+0.2,d=Math.random()*40+25,dl=Math.random()*d,l=Math.random()*100,t=Math.random()*100;p.style.cssText='width:'+s+'px;height:'+s+'px;background:'+co+o+');left:'+l+'%;top:'+t+'%;animation-duration:'+d+'s;animation-delay:-'+dl+'s;box-shadow:0 0 '+s*3+'px '+co+o*0.5+');';c.appendChild(p);}
 
