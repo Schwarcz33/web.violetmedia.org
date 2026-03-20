@@ -44,8 +44,8 @@
       background-attachment: fixed; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden;
     }
     #particles { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
-    .particle { position: absolute; border-radius: 50%; animation: drift linear infinite; }
-    @keyframes drift { 0% { transform: translateY(0) translateX(0); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(110vh) translateX(40px); opacity: 0; } }
+    .particle { position: absolute; border-radius: 50%; animation: drift linear infinite; will-change: transform, opacity; contain: strict; }
+    @keyframes drift { 0% { transform: translate3d(0,0,0); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translate3d(40px,110vh,0); opacity: 0; } }
 
     /* DRAMA FONT */
     .font-drama { font-family: 'Playfair Display', Georgia, serif; }
@@ -79,7 +79,7 @@
     /* HERO - Full screen with video */
     .hero { position: relative; z-index: 1; overflow: hidden; padding: 180px 24px 120px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
     .hero-video-wrapper { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
-    .hero-video-wrapper video { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; transform: translate(-50%, -50%); object-fit: cover; }
+    .hero-video-wrapper video { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; transform: translate(-50%, -50%); object-fit: cover; will-change: transform; }
     .hero-video-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5,2,20,0.45) 0%, rgba(5,2,20,0.22) 30%, rgba(5,2,20,0.22) 60%, rgba(5,2,20,0.80) 100%); z-index: 1; }
     .hero-content { position: relative; z-index: 2; max-width: 850px; }
     .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(138,43,226,0.15); border: 1px solid rgba(138,43,226,0.3); color: var(--violet-light); padding: 8px 20px; border-radius: 100px; font-size: 14px; font-weight: 600; margin-bottom: 32px; animation: fadeInDown 0.8s ease; backdrop-filter: blur(8px); }
@@ -327,7 +327,7 @@
 
 <section class="hero">
   <div class="hero-video-wrapper">
-    <video autoplay muted loop playsinline><source src="hero-bg-video.mp4" type="video/mp4"></video>
+    <video autoplay muted loop playsinline webkit-playsinline preload="auto" poster="hero-poster.jpg"><source src="hero-bg-video.mp4" type="video/mp4"></video>
     <div class="hero-video-overlay"></div>
   </div>
   <div class="hero-content">
@@ -571,9 +571,11 @@
 <script>
 (function(){
   // Particles
-  var c=document.getElementById('particles'),n=window.innerWidth<768?140:280;
+  var c=document.getElementById('particles'),n=window.innerWidth<768?60:150;
   var cols=['rgba(255,255,255,','rgba(138,43,226,','rgba(45,107,255,','rgba(168,85,247,'];
-  for(var i=0;i<n;i++){var p=document.createElement('div');p.className='particle';var s=Math.random()*2.5+0.5,co=cols[Math.floor(Math.random()*cols.length)],o=Math.random()*0.5+0.2,d=Math.random()*40+25,dl=Math.random()*d,l=Math.random()*100,t=Math.random()*100;p.style.cssText='width:'+s+'px;height:'+s+'px;background:'+co+o+');left:'+l+'%;top:'+t+'%;animation-duration:'+d+'s;animation-delay:-'+dl+'s;box-shadow:0 0 '+s*3+'px '+co+o*0.5+');';c.appendChild(p);}
+  var frag=document.createDocumentFragment();
+  for(var i=0;i<n;i++){var p=document.createElement('div');p.className='particle';var s=Math.random()*2.5+0.5,co=cols[Math.floor(Math.random()*cols.length)],o=Math.random()*0.5+0.2,d=Math.random()*40+25,dl=Math.random()*d,l=Math.random()*100,t=Math.random()*100;p.style.cssText='width:'+s+'px;height:'+s+'px;background:'+co+o+');left:'+l+'%;top:'+t+'%;animation-duration:'+d+'s;animation-delay:-'+dl+'s;';frag.appendChild(p);}
+  c.appendChild(frag);
 
   // Mobile menu
   document.getElementById('menuBtn').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('active');});
