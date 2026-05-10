@@ -19,6 +19,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
   <style>
     :root {
       --violet: #8A2BE2;
@@ -53,6 +54,12 @@
 
     /* NOISE OVERLAY */
     .noise-overlay { position: fixed; inset: 0; pointer-events: none; z-index: 40; opacity: 0.045; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); mix-blend-mode: overlay; }
+
+    /* VM 3D LOGO — Fixed left-center, mirrors violetmedia.org */
+    #vm-logo-3d-wrap { position: fixed; left: clamp(32px, 4vw, 64px); top: 50%; transform: translateY(-50%); width: clamp(140px, 14vw, 220px); height: clamp(140px, 14vw, 220px); z-index: 40; pointer-events: none; filter: drop-shadow(0 0 24px rgba(138,43,226,0.35)) drop-shadow(0 0 48px rgba(138,43,226,0.18)); opacity: 1 !important; transition: opacity 0.6s ease; }
+    #vm-logo-3d-wrap model-viewer { pointer-events: none; width: 100%; height: 100%; --progress-bar-color: transparent; --progress-bar-height: 0; background: transparent; --poster-color: transparent; }
+    @media (max-width: 1279px) { #vm-logo-3d-wrap { display: none; } }
+    @media (prefers-reduced-motion: reduce) { #vm-logo-3d-wrap model-viewer { --poster-color: transparent; } }
 
     /* NAV — Morphing Floating Pill */
     nav { position: fixed; top: 16px; left: 50%; transform: translateX(-50%); width: 94%; max-width: 1100px; z-index: 100; background: transparent; border: 1px solid transparent; border-radius: 999px; transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
@@ -324,6 +331,26 @@
 <body>
 <div class="noise-overlay" aria-hidden="true"></div>
 <div id="particles"></div>
+<!-- VM 3D Logo — Fixed Left, Always Visible (mirrors violetmedia.org) -->
+<div id="vm-logo-3d-wrap" aria-hidden="true">
+  <model-viewer
+    src="vm-logo-3d.glb"
+    alt="Violet Media 3D logo"
+    auto-rotate
+    auto-rotate-delay="0"
+    rotation-per-second="18deg"
+    interaction-prompt="none"
+    disable-zoom
+    disable-pan
+    disable-tap
+    camera-controls="false"
+    shadow-intensity="0"
+    exposure="1.1"
+    environment-image="neutral"
+    loading="eager"
+    reveal="auto">
+  </model-viewer>
+</div>
 <nav><div class="nav-inner"><a href="#" class="nav-logo"><img src="nav-logo.png" alt="Violet Media" class="nav-logo-img"><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;color:#fff;margin-left:4px;letter-spacing:0.5px;">Web Design</span></a><ul class="nav-links" id="navLinks"><li><a href="#portfolio">Portfolio</a></li><li><a href="#process">Process</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contact" class="nav-cta">Start a Project</a></li></ul><button class="mobile-menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
 
 <section class="hero">
