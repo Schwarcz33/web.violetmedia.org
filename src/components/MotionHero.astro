@@ -1,0 +1,13 @@
+---
+import Photo from './Photo.astro';
+---
+<div class="interior-hero-photo motion-hero" data-motion-hero>
+  <Photo name="premium-portfolio-1" alt="Warm timber residence overlooking Perth and the Swan River" eager sizes="100vw" />
+  <video id="interior-hero-film" muted loop playsinline preload="none" poster="/media/premium-portfolio-1-1280.webp" data-desktop="/media/noir-hero-1080.mp4" data-mobile="/media/noir-hero-720.mp4" aria-label="A slow architectural camera move through the City Residence concept"></video>
+  <span class="interior-photo-caption">01 / THE CITY RESIDENCE · A FILM IN TEN SECONDS</span>
+  <button class="motion-toggle" type="button" aria-controls="interior-hero-film" hidden>Play film <span aria-hidden="true">▷</span></button>
+  <a href="#spaces" aria-label="Explore selected spaces" class="interior-scroll">↓</a>
+</div>
+<script>
+  import '../scripts/motion-hero.js';
+</script>

@@ -27,6 +27,10 @@ Mailbox delivery is not established by a build or a browser form-validation test
 
 ## Commercial scope
 
+The Premium interiors concept now demonstrates a ten-second architectural hero film, alongside its three individual project stories and consultation flow. The homepage explicitly compares Standard (from AUD 1,500) and Premium (from AUD 3,000), with final motion, content and page scope agreed in the proposal.
+
+The hero uses silent H.264 MP4s (1080p desktop: 6.70 MB; 720p mobile: 2.11 MB), copied from `assets/premium-motion-2026-09-28/` during the build. The original still remains the poster and no-JavaScript/error fallback. Reduced-motion and data-saving preferences suppress automatic video loading; the visitor can choose Play. Playback pauses offscreen and in background tabs, with an explicit Play/Pause control. No video soundtrack is shipped.
+
 Existing starting prices remain AUD 800 / AUD 1,500 / AUD 3,000. No unsupported popularity/satisfaction or audience metrics are used. Hosting, CMS and paid integrations require a scoped proposal; no unlimited free hosting promise is made.
 
 ## Analytics

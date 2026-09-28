@@ -16,5 +16,8 @@ for (const source of ['assets/photography-2026-09-28', 'assets/gym-reference-rev
   }
 }
 await copyFile('favicon.ico', 'public/favicon.ico');
+for (const name of ['noir-hero-1080.mp4', 'noir-hero-720.mp4']) {
+  await copyFile(`assets/premium-motion-2026-09-28/${name}`, `public/media/${name}`);
+}
 await sharp('vm-icon.png').resize({width:96}).webp({quality:85}).toFile('public/media/violet-mark.webp');
 console.log('Prepared responsive WebP images from the new September 2026 collection.');
