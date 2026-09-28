@@ -43,8 +43,17 @@ test('existing demo addresses have explicit permanent redirects',async()=>{
   for(const slug of ['starter','standard','premium'])for(const ext of ['','.html'])assert.ok(config.includes(`from = "/demos/${slug}${ext}"`));
   assert.match(config,/publish = "dist"/);
 });
-test('responsive assets are optimised and no old video payload is shipped',async()=>{
+test('responsive assets stay within image and video budgets',async()=>{
   const media=files.filter(f=>f.endsWith('.webp'));assert.equal(media.length,35, "17 photographs in two sizes plus the brand mark");
   for(const file of media){const size=(await stat(file)).size;assert.ok(size<500000,`${file} is ${size} bytes`);}
-  assert.equal(files.filter(f=>f.endsWith('.mp4')).length,0);
+  const videos=files.filter(f=>f.endsWith('.mp4'));
+  assert.deepEqual(videos.map(f=>path.basename(f)).sort(),['noir-hero-1080.mp4','noir-hero-720.mp4']);
+  for(const file of videos) assert.ok((await stat(file)).size < (file.includes('720')?3000000:8000000),file);
+  const html=contents.get(path.join(root,'demos/interiors/index.html'));
+  const video=html.match(/<video\b[^>]*>/)?.[0];
+  assert.ok(video);
+  assert.match(video,/muted/);assert.match(video,/playsinline/);assert.match(video,/preload="none"/);
+  assert.doesNotMatch(video,/\ssrc=/);
+  for(const name of videos.map(f=>path.basename(f))) assert.ok(video.includes(`/media/${name}`));
+  assert.match(video,/poster="\/media\/premium-portfolio-1-1280.webp"/);
 });
