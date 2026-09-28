@@ -1,0 +1,11 @@
+---
+const { brand = 'Violet Media', sub = 'WEB DESIGN', home = '/', links = [], cta = 'Let’s talk', target = '#contact', kind = 'studio' } = Astro.props;
+---
+<header class:list={['site-header', kind]}>
+  <a class="wordmark" href={home}>{kind === 'studio' && <img src="/media/violet-mark.webp" width="38" height="38" alt="" />}<span>{brand}<small>{sub}</small></span></a>
+  <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation"><span></span><span></span></button>
+  <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+    {links.map(([label, href]) => <a href={href}>{label}</a>)}
+    <a class="nav-cta" href={target}>{cta} <span aria-hidden="true">↗</span></a>
+  </nav>
+</header>

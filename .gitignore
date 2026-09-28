@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.astro/
+public/media/
+.netlify/
+
+assets/*/originals/
+image-import.json
+scripts/import-images.mjs
+gym-import.json
+
+assets/photography-2026-09-28/standard-*.webp
+assets/gym-reference-revision-2026-09-28/standard-gallery-1.webp

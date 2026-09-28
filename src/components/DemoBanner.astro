@@ -1,0 +1,8 @@
+---
+const { name, key: demoKey } = Astro.props;
+---
+<aside class="demo-banner" aria-label="Concept website information">
+  <a href="/#work" class="demo-back">← All concepts</a>
+  <span><strong>{name}</strong> · A fictional business, designed by Violet Media</span>
+  <a href={`/?concept=${demoKey}#contact`} class="demo-commission">A website like this? ↗</a>
+</aside>
