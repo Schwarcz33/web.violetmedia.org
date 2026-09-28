@@ -1,0 +1,30 @@
+---
+import Photo from './Photo.astro';
+---
+<div class="studio-showcase" data-showcase data-motion-hero>
+  <div class="showcase-heading"><span>DESIGN WITH ANOTHER DIMENSION</span><span class="showcase-live">VIOLET MEDIA / SELECTED CONCEPTS</span></div>
+  <div class="showcase-stage" id="studio-depth-stage">
+    <div class="showcase-orbit" aria-hidden="true"></div>
+    <div class="showcase-plane">
+      <a href="/demos/interiors/" class="showcase-film" aria-label="Explore Noir and Co., our cinematic website concept">
+        <div class="showcase-chrome"><span>NOIR & CO.</span><span>INTERIORS / MOTION ↗</span></div>
+        <div class="showcase-screen">
+          <Photo name="premium-portfolio-1" alt="A Perth interior overlooking the Swan River" eager sizes="(max-width: 900px) 90vw, 48vw" />
+          <video id="studio-hero-film" muted loop playsinline preload="none" poster="/media/premium-portfolio-1-1280.webp" data-desktop="/media/noir-hero-1080.mp4" data-mobile="/media/noir-hero-720.mp4" aria-label="Ten-second architectural film of the Perth interior concept"></video>
+          <div class="showcase-film-copy"><span>NOIR & CO.</span><strong>Spaces for<br/><em>living well.</em></strong></div>
+        </div>
+      </a>
+      <a href="/demos/bakery/" class="showcase-tile showcase-bakery" aria-label="Explore Bella’s Bakery concept"><Photo name="starter-croissant" alt="Golden bakery croissants" sizes="(max-width: 600px) 38vw, 200px"/><span>BELLA’S BAKERY <b aria-hidden="true">↗</b></span></a>
+      <a href="/demos/fitness/" class="showcase-tile showcase-fitness" aria-label="Explore Apex Fitness concept"><span>APEX <b aria-hidden="true">↗</b></span><strong>SHOW UP.<br/>GET STRONGER.</strong><small>FITNESS, WITH DIRECTION.</small></a>
+    </div>
+  </div>
+  <div class="showcase-controls">
+    <button class="showcase-control" data-film-toggle type="button" aria-controls="studio-hero-film" hidden>Play film ▷</button>
+    <button class="showcase-control" data-depth-toggle type="button" aria-controls="studio-depth-stage" aria-pressed="false" hidden>Explore depth ↗</button>
+  </div>
+  <p class="showcase-note">Three original concepts. One studio. Made to move you.</p>
+</div>
+<script>
+  import '../scripts/motion-hero.js';
+  import '../scripts/studio-showcase.js';
+</script>

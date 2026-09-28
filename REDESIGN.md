@@ -39,4 +39,6 @@ No analytics trackers were present in the old root HTML, and none have been adde
 
 ## Editing
 
+The studio homepage hero is `src/components/StudioShowcase.astro`. It reuses the Premium film and shared playback controller, with lightweight CSS 3D depth controlled by `src/scripts/studio-showcase.js`. `3D-DIRECTION.md` distinguishes the shipped panel composition from proposed modelled 3D experiences and records the next prototype direction.
+
 Homepage: `src/pages/index.astro`. Each demo has its own page and CSS section in `src/styles/demos.css`. Shared navigation, forms and filters are in `src/scripts/site.js`. Interior project data is in `src/data/interiors.js`.
