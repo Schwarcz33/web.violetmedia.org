@@ -1,0 +1,14 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import Header from '../../../../components/Header.astro';
+import DemoBanner from '../../../../components/DemoBanner.astro';
+import Photo from '../../../../components/Photo.astro';
+import { projects } from '../../../../data/interiors';
+export function getStaticPaths() { return projects.map((project,index) => ({params:{slug:project.slug},props:{project,next:projects[(index+1)%projects.length]}})); }
+const {project:p,next} = Astro.props;
+---
+<Layout title={`${p.name} | Noir & Co. Concept`} description={p.description} theme="interiors" demo image={`/media/${p.image}-1280.webp`}>
+  <DemoBanner name="Noir & Co." key="interiors" />
+  <Header brand="NOIR & CO." sub="INTERIORS, CONSIDERED" home="/demos/interiors/" kind="interiors" links={[["All spaces","/demos/interiors/#spaces"],["The studio","/demos/interiors/#studio"]]} cta="Begin a conversation" target="/demos/interiors/#consultation" />
+  <main id="main"><section class="wrap interior-detail-intro"><a class="text-link" href="/demos/interiors/#spaces">← Selected spaces</a><p class="eyebrow">{p.category} / Imagined project {p.number}</p><h1>{p.name}</h1><p class="lead">{p.intro}</p></section><div class="wrap interior-detail-photo"><Photo name={p.image} alt={p.name} eager sizes="100vw"/></div><section class="section wrap interior-detail-story"><h2>A considered<br/><em>point of view.</em></h2><div><p class="lead">{p.description}</p><p>{p.story}</p><dl><div><dt>Material direction</dt><dd>{p.palette}</dd></div><div><dt>Design focus</dt><dd>{p.focus}</dd></div><div><dt>Project status</dt><dd>Fictional portfolio concept — not a built project</dd></div></dl></div></section><div class="wrap interior-detail-photo"><Photo name={p.secondary} alt={`Complementary interior concept for ${p.name}`} sizes="100vw"/></div><section class="section wrap interior-next"><p class="eyebrow">Next perspective</p><h2><a href={`/demos/interiors/projects/${next.slug}/`}>{next.name} ↗</a></h2><a class="text-link" href="/demos/interiors/#consultation">Talk about your space →</a></section></main><footer class="wrap demo-footer"><span>Fictional project · Designed by Violet Media</span><a href="/?concept=interiors#contact">Discuss a website like this ↗</a></footer>
+</Layout>

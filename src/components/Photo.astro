@@ -1,0 +1,4 @@
+---
+const { name, alt, eager = false, class: className = '', sizes = '(max-width: 700px) 100vw, 50vw' } = Astro.props;
+---
+<img class={className} src={`/media/${name}-1280.webp`} srcset={`/media/${name}-640.webp 640w, /media/${name}-1280.webp 1280w`} sizes={sizes} alt={alt} width="1536" height="1024" loading={eager ? 'eager' : 'lazy'} decoding="async" fetchpriority={eager ? 'high' : 'auto'} />

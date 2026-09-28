@@ -1,0 +1,27 @@
+---
+import '../styles/global.css';
+const { title, description, theme = 'studio', demo = false, image = '/media/premium-portfolio-1-1280.webp' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, 'https://web.violetmedia.org');
+---
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title><meta name="description" content={description} />
+  <link rel="canonical" href={canonical} /><link rel="icon" href="/favicon.ico" />
+  {demo && <meta name="robots" content="noindex, follow" />}
+  <meta property="og:title" content={title} /><meta property="og:description" content={description} />
+  <meta property="og:type" content="website" /><meta property="og:url" content={canonical} />
+  <meta property="og:image" content={new URL(image, canonical)} /><meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <slot name="head" />
+</head>
+<body class={theme}>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <slot />
+  <script>
+    import '../scripts/site.js';
+  </script>
+</body>
+</html>

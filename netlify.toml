@@ -1,5 +1,57 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "24"
+
 [functions]
   directory = "netlify/functions"
+
+[[redirects]]
+  from = "/demos/starter.html"
+  to = "/demos/bakery/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/demos/starter"
+  to = "/demos/bakery/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/demos/standard.html"
+  to = "/demos/fitness/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/demos/standard"
+  to = "/demos/fitness/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/demos/premium.html"
+  to = "/demos/interiors/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/demos/premium"
+  to = "/demos/interiors/"
+  status = 301
+  force = true
+
+[[headers]]
+  for = "/media/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+[[headers]]
+  for = "/demos/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
 
 [[redirects]]
   from = "/api/chat"
