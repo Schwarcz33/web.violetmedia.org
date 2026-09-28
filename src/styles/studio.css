@@ -6,3 +6,34 @@
 .studio .button:not(.violet-button){background:#30213f;color:#e8e3ed;border-color:#6b4981}.studio .button:not(.violet-button):hover{background:#563073;border-color:#b982ec}.studio .field input,.studio .field textarea,.studio .field select{background:#18121f;color:#e8e3ed}.studio .field input::placeholder,.studio .field textarea::placeholder{color:#a89ab5;opacity:1}.studio .site-nav a:hover{color:#c598e8}.studio .site-header{background:#111016}.studio .menu-toggle{color:#e8e3ed}.studio .field select option{background:#18121f;color:#e8e3ed}
 
 .package-difference{padding:30px;margin-top:28px;background:#201829;border:1px solid #51405f;display:grid;grid-template-columns:1fr 1fr;gap:20px 40px}.package-difference h3{grid-column:1/-1;font-family:var(--serif);font-size:27px}.package-difference p{font-size:12px;color:var(--muted)}.package-difference strong{color:var(--ink)}.package-difference .text-link{justify-self:start}@media(max-width:700px){.package-difference{grid-template-columns:1fr;padding:24px}.package-difference h3{grid-column:auto}}
+
+.studio-showcase{min-width:0;position:relative;padding:22px 0 12px;margin-left:12px}
+.showcase-heading{display:flex;justify-content:space-between;gap:15px;color:#be98dd;font-size:8px;letter-spacing:.12em;border-top:1px solid #564067;padding-top:16px}
+.showcase-live{color:#9d91ac;font-size:6px;text-align:right}
+.showcase-stage{height:490px;position:relative;perspective:1100px}
+.showcase-orbit{position:absolute;inset:12% -4% 8%;border:1px solid #65358a66;border-radius:50%;transform:rotate(-25deg);background:radial-gradient(ellipse,#8a2be22a,transparent 68%);pointer-events:none}
+.showcase-plane{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(var(--turn-x,0deg)) rotateY(var(--turn-y,0deg));transition:transform .25s ease-out}
+.showcase-film{display:block;position:absolute;top:48px;left:3%;width:94%;border:1px solid #6d4b83;border-radius:9px;background:#241b2f;box-shadow:0 25px 75px #0009;overflow:hidden;transform:rotateY(-8deg) rotateZ(2deg);transition:transform .65s}
+.showcase-chrome{height:30px;display:flex;justify-content:space-between;align-items:center;padding:0 14px;font-size:7px;letter-spacing:.1em;color:#d5bedf}
+.showcase-screen{position:relative;aspect-ratio:3/2;overflow:hidden}
+.showcase-screen img,.showcase-screen video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.showcase-screen video{opacity:0;transition:opacity .6s}.studio-showcase.film-ready video{opacity:1}
+.showcase-film-copy{position:absolute;inset:0;padding:24px;background:linear-gradient(90deg,#100b1680,transparent 85%);color:#e4dbc9;pointer-events:none}
+.showcase-film-copy>span{font:12px var(--serif);letter-spacing:.14em}.showcase-film-copy strong{display:block;font:400 clamp(30px,3vw,48px)/1.08 var(--serif);margin-top:35px}
+.showcase-tile{position:absolute;bottom:25px;border:1px solid #6b526f;box-shadow:0 20px 45px #0008;transition:transform .65s;border-radius:5px;overflow:hidden}
+.showcase-bakery{left:0;width:42%;background:#30241f;transform:translateZ(65px) rotateZ(-7deg)}
+.showcase-bakery img{width:100%;height:100px;object-fit:cover}.showcase-bakery>span{display:flex;justify-content:space-between;padding:12px;font-size:8px;color:#e8ceaf}
+.showcase-fitness{right:0;width:39%;padding:18px;background:#15251c;transform:translateZ(100px) rotateZ(5deg);color:#c7ec81}
+.showcase-fitness>span{display:flex;justify-content:space-between;font:18px 'Oswald',sans-serif;letter-spacing:.1em}.showcase-fitness strong{display:block;font:600 25px/1.15 'Oswald',sans-serif;margin-top:15px;color:#d3dcc6}.showcase-fitness small{display:block;font-size:5px;letter-spacing:.1em;margin-top:15px}
+.showcase-controls{display:flex;justify-content:space-between;gap:12px;position:relative;z-index:2;margin-top:6px}
+.showcase-control{min-height:44px;padding:10px 14px;background:#261b32;border:1px solid #6f498a;color:#dac4ec;font-size:10px}.showcase-control:hover{background:#3b2252}.showcase-control[aria-pressed=true]{background:#583174}
+.showcase-note{font-size:9px;color:#b5a7c2;margin-top:15px;letter-spacing:.035em}
+.depth-expanded .showcase-film{transform:translateZ(-30px) rotateY(-15deg) rotateZ(0deg)}
+.depth-expanded .showcase-bakery{transform:translate3d(-5px,12px,105px) rotateY(12deg) rotateZ(-9deg)}
+.depth-expanded .showcase-fitness{transform:translate3d(2px,15px,135px) rotateY(-10deg) rotateZ(8deg)}
+.dimension-section{background:#1c1425;border-bottom:1px solid #473153}.dimension-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}.dimension-grid article{padding:27px;border:1px solid #533768;background:#241a2e}.dimension-grid span{color:#bd89e5;font-size:10px;letter-spacing:.14em}.dimension-grid h3{font:26px var(--serif);margin:22px 0 16px}.dimension-grid p{font-size:12px;color:var(--muted)}.dimension-scope{font-size:11px;color:var(--muted);margin-top:28px}
+@media(max-width:1150px){.showcase-stage{height:420px}.showcase-film-copy strong{margin-top:20px}.showcase-fitness strong{font-size:22px}}
+@media(max-width:900px){.studio-showcase{width:min(620px,94%);margin:0 auto}.showcase-stage{height:510px}.dimension-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.studio-showcase{width:100%}.showcase-stage{height:365px}.showcase-film{top:38px}.showcase-film-copy{padding:16px}.showcase-film-copy strong{font-size:28px;margin-top:22px}.showcase-chrome{height:24px;font-size:6px}.showcase-bakery img{height:73px}.showcase-tile{bottom:20px}.showcase-fitness{padding:13px}.showcase-fitness strong{font-size:20px}.showcase-fitness>span{font-size:15px}.showcase-bakery>span{font-size:6px;padding:10px}.showcase-heading{font-size:7px}.showcase-live{display:none}.showcase-control{font-size:9px}.showcase-note{font-size:8px}}
+@media(prefers-reduced-motion:reduce){.showcase-plane{transform:none!important}}
+@media(max-width:600px){.showcase-bakery{left:3%;transform:translateZ(20px) rotateZ(-5deg)}.showcase-fitness{right:3%;transform:translateZ(25px) rotateZ(4deg)}.depth-expanded .showcase-bakery{transform:translate3d(3px,8px,35px) rotateY(8deg) rotateZ(-5deg)}.depth-expanded .showcase-fitness{transform:translate3d(-3px,8px,45px) rotateY(-8deg) rotateZ(5deg)}}

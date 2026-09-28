@@ -57,3 +57,12 @@ test('responsive assets stay within image and video budgets',async()=>{
   for(const name of videos.map(f=>path.basename(f))) assert.ok(video.includes(`/media/${name}`));
   assert.match(video,/poster="\/media\/premium-portfolio-1-1280.webp"/);
 });
+
+test('studio hero reuses the film without eager loading or broken controls',()=>{
+  const html=contents.get(path.join(root,'index.html'));
+  assert.match(html,/<video[^>]*id="studio-hero-film"[^>]*preload="none"/);
+  assert.match(html,/aria-controls="studio-hero-film"/);
+  assert.match(html,/aria-controls="studio-depth-stage"/);
+  assert.match(html,/3D and immersive experiences are individually scoped/);
+  assert.equal((html.match(/<video\b/g)||[]).length,1);
+});

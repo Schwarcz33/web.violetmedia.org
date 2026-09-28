@@ -1,7 +1,6 @@
-const hero = document.querySelector('[data-motion-hero]');
-if (hero) {
+for (const hero of document.querySelectorAll('[data-motion-hero]')) {
   const video = hero.querySelector('video');
-  const button = hero.querySelector('button');
+  const button = hero.querySelector('[data-film-toggle], .motion-toggle');
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const connection = navigator.connection;
   let wantsPlayback = !reduceMotion.matches && !connection?.saveData;
