@@ -7,6 +7,7 @@ const canonical = new URL(Astro.url.pathname, 'https://web.violetmedia.org');
 <html lang="en-AU">
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content={theme === "bakery" ? "#191310" : theme === "fitness" ? "#111813" : theme === "interiors" ? "#141612" : "#111016"} />
   <title>{title}</title><meta name="description" content={description} />
   <link rel="canonical" href={canonical} /><link rel="icon" href="/favicon.ico" />
   {demo && <meta name="robots" content="noindex, follow" />}
